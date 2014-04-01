@@ -20,6 +20,8 @@
                  init-js
                  init-flycheck
                  init-help
+                 init-rvm
+                 init-yaml
 
                  init-keymaps
                  init-settings))
