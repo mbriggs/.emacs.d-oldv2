@@ -25,3 +25,11 @@
 (setq ido-use-faces nil)
 ;; set gc threshold to 20mb
 (setq gc-cons-threshold 20000000)
+
+
+(add-hook 'ido-minibuffer-setup-hook
+          (lambda ()
+            (define-key ido-completion-map (kbd "M-n") 'ido-next-match)
+            (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+            (define-key ido-completion-map (kbd "M-p") 'ido-prev-match)
+            (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)))

@@ -10,6 +10,10 @@
                    init-ido
                    init-evil
                    init-completion
+                   init-projectile
 
                    init-keymaps
                    init-settings))
+
+(unless (server-running-p)
+  (server-start))
