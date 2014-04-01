@@ -5,3 +5,7 @@
 
 (global-set-key (kbd "<f1>") 'magit-status)
 (define-key evil-normal-state-map "B" 'magit-checkout)
+
+
+(quelpa 'git-gutter-fringe)
+(global-git-gutter-mode)

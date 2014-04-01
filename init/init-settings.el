@@ -41,3 +41,4 @@
 (setq recentf-max-saved-items 80
       recentf-exclude '("/tmp/" "/ssh:"))
 
+
