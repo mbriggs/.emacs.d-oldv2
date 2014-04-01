@@ -13,6 +13,8 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 
+(modify-all-frames-parameters '((fullscreen . maximized)))
+(setq package-archives nil)
 
 ;;; quelpa
 

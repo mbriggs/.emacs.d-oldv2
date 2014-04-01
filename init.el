@@ -11,6 +11,8 @@
                    init-evil
                    init-completion
                    init-projectile
+                   init-magit
+                   init-expand-region
 
                    init-keymaps
                    init-settings))
