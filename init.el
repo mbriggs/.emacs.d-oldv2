@@ -13,6 +13,7 @@
                    init-projectile
                    init-magit
                    init-expand-region
+                   init-web
 
                    init-keymaps
                    init-settings))

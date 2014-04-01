@@ -19,3 +19,8 @@
           (lambda ()
             (when (not (eq major-mode 'shell-mode))
               (setq show-trailing-whitespace t))))
+
+(setq frame-title-format
+      '((:eval (if (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name))
+                 "%b"))))
