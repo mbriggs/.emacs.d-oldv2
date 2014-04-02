@@ -23,6 +23,8 @@
                  init-help
                  init-yaml
                  init-ruby
+                 init-multiple-cursors
+                 init-project-explorer
 
                  init-keymaps
                  init-settings))

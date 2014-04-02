@@ -2,9 +2,9 @@
 
 (quelpa 'multiple-cursors)
 
-
 (global-set-key (kbd "A-<up>") 'mc/mark-previous-like-this)
 (global-set-key (kbd "A-<down>") 'mc/mark-next-like-this)
+
 
 ;;; Thanks to tkf on
 ;;; https://github.com/magnars/multiple-cursors.el/issues/19
