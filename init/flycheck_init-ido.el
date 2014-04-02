@@ -10,7 +10,7 @@
 (require 'ido-hacks)
 
 (ido-vertical-mode 1)
-(ido-hacks-mode 1)
+(ido-hack-mode 1)
 (ido-mode t)
 (ido-ubiquitous-initialize)
 (setq ido-enable-flex-matching t)

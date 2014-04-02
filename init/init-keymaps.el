@@ -25,8 +25,9 @@
 (global-set-key (kbd "M-v") 'evil-paste-after)
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-w") 'quit-window)
+(global-set-key (kbd "M-q") 'save-buffers-kill-emacs)
 
-;;; esc quits
+;;; esc ALWAYS quits
 
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
 (define-key evil-visual-state-map [escape] 'keyboard-quit)
