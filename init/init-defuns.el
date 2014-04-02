@@ -1,21 +1,127 @@
 (provide 'init-defuns)
 
+(defun duplicate-region ()
+  (interactive)
+  (kill-region (region-beginning) (region-end))
+  (yank)
+  (vhl/clear-all)
+  (yank))
 
-(defmacro with-theme-colors (&rest body)
-  `(let ((dark1 "#2b2b2b")
-         (dark2 "#272935")
-         (dark3 "#3a4055")
-         (dark4 "#5a647e")
-         (light1 "#d4cfc9")
-         (light2 "#e6e1dc")
-         (light3 "#f4f1ed")
-         (light4 "#f9f7f3")
-         (red "#da4939")
-         (orange "#cc7833")
-         (yellow "#ffc66d")
-         (lightgreen "#a5c261")
-         (darkgreen "#519f50")
-         (blue "#6d9cbe")
-         (purple "#b6b3eb")
-         (brown "#bc9458"))
-     ,@body))
+(defun duplicate-line ()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (vhl/clear-all)
+  (yank))
+
+(defun clean-up-buffer-or-region ()
+  "Untabifies, indents and deletes trailing whitespace from buffer or region."
+  (interactive)
+  (save-excursion
+    (unless (region-active-p)
+      (mark-whole-buffer))
+    (untabify (region-beginning) (region-end))
+    (indent-region (region-beginning) (region-end))
+    (save-restriction
+      (narrow-to-region (region-beginning) (region-end))
+      (delete-trailing-whitespace))))
+
+
+(defun newline-anywhere ()
+  (interactive)
+  (end-of-line)
+  (newline-and-indent))
+
+(defun newline-on-previous-line-anywhere ()
+  (interactive)
+  (previous-line)
+  (end-of-line)
+  (newline-and-indent))
+
+(defun current-line-number ()
+  (+ 1 (count-lines 1 (point))))
+
+(defun send-current-line-to-next-window ()
+  "Send current line to next window"
+  (interactive)
+  (let ((current-line (buffer-substring-no-properties (point-at-bol) (point-at-eol)))
+        (target (window-buffer (next-window))))
+    (with-current-buffer target
+      (insert current-line))))
+
+(defun reset-current-dir ()
+  (interactive)
+  (let ((dir (file-name-directory (buffer-file-name))))
+    (cd dir)
+    (message (concat "Set the current buffer directory to " dir))))
+
+(defun what-face (pos)
+  (interactive "d")
+  (let ((face (or (get-char-property (point) 'read-face-name)
+                  (get-char-property (point) 'face))))
+    (if face (message "Face: %s" face) (message "No face at %d" pos))))
+
+(defun my-delete-backwards ()
+  (interactive)
+  (delete-region (point) (progn (evil-backward-word-begin) (point))))
+
+(defun add-to-js-globals ()
+  (interactive)
+  (let ((var (word-at-point)))
+    (save-excursion
+      (goto-char (point-min))
+      (when (not (string-match "^/\\*global " (current-line)))
+          (newline)
+          (forward-line -1)
+          (insert "/*global */"))
+      (while (not (string-match "*/" (current-line)))
+        (next-line))
+      (end-of-line)
+      (delete-char -2)
+      (insert (concat var " */")))))
+
+(defun new-line-in-normal-mode ()
+  "make a new line without moving the cursor or leaving normal mode"
+  (interactive)
+  (save-excursion
+    (evil-insert-newline-below)
+    (evil-force-normal-state)))
+
+(defun semi-colonize ()
+  (interactive)
+  (goto-char (point-min))
+  (query-replace-regexp "^ *[^/]+[^;,{}\n.]$" "\\&;"))
+
+(defun format-json ()
+  (interactive)
+  (let ((cmd "python -mjson.tool"))
+    (shell-command-on-region (region-beginning) (region-end) cmd nil t)))
+
+(defun copy-to-end-of-line ()
+  (interactive)
+  (copy-region-as-kill (point) (point-at-eol)))
+
+(defun rename-this-file-and-buffer (new-name)
+  "Renames both current buffer and file it's visiting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (unless filename
+      (error "Buffer '%s' is not visiting a file!" name))
+    (if (get-buffer new-name)
+        (message "A buffer named '%s' already exists!" new-name)
+      (progn
+        (rename-file name new-name 1)
+        (rename-buffer new-name)
+        (set-visited-file-name new-name)
+        (set-buffer-modified-p nil)))))
+
+
+(defun fix-buffer-directory ()
+  (interactive)
+  (if buffer-file-name
+      (setq default-directory
+            (file-name-directory buffer-file-name))))

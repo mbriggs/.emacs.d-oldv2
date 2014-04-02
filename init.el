@@ -25,6 +25,7 @@
                  init-ruby
                  init-multiple-cursors
                  init-project-explorer
+                 init-volatile-highlights
 
                  init-keymaps
                  init-settings))
