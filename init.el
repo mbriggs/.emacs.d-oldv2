@@ -5,6 +5,7 @@
 
 
 (mapc 'require '(init-bootstrap
+                 init-defuns
                  init-appearance
 
                  init-ido
@@ -29,13 +30,6 @@
 (require 'server)
 (unless (server-running-p)
   (server-start))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-auto-complete t)
- '(company-idle-delay t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -51,4 +45,5 @@
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :foreground "#f9f7f3"))))
  '(company-tooltip-selection ((t (:inherit company-tooltip :background "#6d9cbe"))))
  '(sp-show-pair-enclosing ((t (:background "#6d9cbe"))))
- '(sp-show-pair-match-face ((t (:background "#6d9cbe")))))
+ '(sp-show-pair-match-face ((t (:background "#6d9cbe"))))
+ '(trailing-whitespace ((t (:background "#3a4055")))))
