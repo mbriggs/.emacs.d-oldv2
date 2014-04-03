@@ -2,7 +2,7 @@
 
 (setq-default mode-line-format
               '(
-                (:eval (propertize "%3l" 'face 'mode-line-line-face))
+                (:eval (propertize "%3l" 'face 'mode-line-line-position-face))
 
                 (:eval (propertize "%3c" 'face
                                    (if (>= (current-column) 75)

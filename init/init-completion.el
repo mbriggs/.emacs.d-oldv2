@@ -5,6 +5,11 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 (eval-after-load "company"
-                '(lambda ()
-                   (setq company-idle-delay t)))
+  '(progn
+     (setq company-idle-delay t)
+
+     (defadvice company-pseudo-tooltip-unless-just-one-frontend (around only-show-tooltip-when-invoked activate)
+       (when (company-explicit-action-p)
+         ad-do-it))))
+
 

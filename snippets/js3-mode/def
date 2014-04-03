@@ -1,0 +1,3 @@
+define("${1:module name}", function(module){
+  $0
+});

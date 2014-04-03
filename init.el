@@ -27,9 +27,11 @@
                  init-project-explorer
                  init-games
                  init-volatile-highlights
+                 init-snippets
 
                  init-keymaps
                  init-settings))
+
 
 (require 'server)
 (unless (server-running-p)
