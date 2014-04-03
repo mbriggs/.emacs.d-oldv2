@@ -27,7 +27,13 @@
                  init-project-explorer
                  init-games
                  init-volatile-highlights
+                 init-erc
                  init-snippets
+                 init-ack
+                 init-sass
+                 init-anzu
+                 init-crontab
+                 init-deft
 
                  init-keymaps
                  init-settings))

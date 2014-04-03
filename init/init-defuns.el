@@ -7,6 +7,7 @@
   (vhl/clear-all)
   (yank))
 
+
 (defun duplicate-line ()
   (interactive)
   (move-beginning-of-line 1)
@@ -125,3 +126,32 @@
   (if buffer-file-name
       (setq default-directory
             (file-name-directory buffer-file-name))))
+
+(defmacro allow-line-as-region-for-function (orig-function)
+`(defun ,(intern (concat (symbol-name orig-function) "-or-line"))
+   ()
+   ,(format "Like `%s', but acts on the current line if mark is not active."
+            orig-function)
+   (interactive)
+   (if mark-active
+       (call-interactively (function ,orig-function))
+     (save-excursion
+       ;; define a region (temporarily) -- so any C-u prefixes etc. are preserved.
+       (beginning-of-line)
+       (set-mark (point))
+       (end-of-line)
+       (call-interactively (function ,orig-function))))))
+
+(allow-line-as-region-for-function comment-or-uncomment-region)
+
+(defun delete-file-and-buffer ()
+  "Kill the current buffer and deletes the file it is visiting."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (when filename
+      (if (vc-backend filename)
+          (vc-delete-file filename)
+        (progn
+          (delete-file filename)
+          (message "Deleted file %s" filename)
+          (kill-buffer))))))

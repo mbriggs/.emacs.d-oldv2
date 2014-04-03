@@ -43,3 +43,56 @@
 (global-set-key [escape] 'keyboard-quit)
 
 ;;; editing
+
+
+(global-set-key (kbd "M-q") 'evil-quit-all)
+(evil-define-key 'visual global-map
+  (kbd "M-d") 'duplicate-region)
+
+(evil-define-key 'normal global-map
+  (kbd "M-<backspace>") 'kill-whole-line
+  (kbd "M-d") 'duplicate-line)
+
+(evil-define-key 'insert global-map
+  (kbd "M-d") 'duplicate-line
+  (kbd "M-<backspace>") 'kill-whole-line
+  (kbd "M-J") 'evil-join
+  (kbd "M-<return>") 'evil-open-below
+  (kbd "M-<left>") 'evil-first-non-blank
+  (kbd "M-<right>") 'move-end-of-line)
+
+(global-set-key (kbd "M-f") 'isearch-forward)
+(global-set-key (kbd "M-r") 'isearch-backward)
+(define-key isearch-mode-map [escape] 'isearch-cancel)
+(define-key isearch-mode-map (kbd "M-f") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "M-r") 'isearch-repeat-backward)
+
+;;; ex-mode
+
+(defun ex-mode-mapping (cmd)
+  (let ((binding (car cmd))
+        (fn (cdr cmd)))
+    (evil-ex-define-cmd binding fn)))
+
+(mapc 'ex-mode-mapping
+      '(("!"                        . shell-command)
+        ("log"                      . magit-log)
+        ("[br]branch"               . magit-branch-manager)
+        ("deft"                     . deft)
+        ("reset-directory"          . reset-current-dir)
+        ("history"                  . magit-file-log)
+        ("bundle"                   . bundle-install)
+        ("[chan]nel"                . ido-erc-buffer)
+        ("clean"                    . clean-up-buffer-or-region)
+        ("align"                    . align-regexp)
+        ("[er]eval-region"          . eval-region)
+        ("[eb]eval-buffer"          . eval-buffer)
+        ("ack"                      . ack)
+        ("[al]ack-location"         . ack-location)
+        ("[gl]gist-list"            . yagist-list)
+        ("[gr]gist-region"          . yagist-region)
+        ("[grp]gist-region-private" . yagist-region-private)
+        ("erc"                      . start-erc)
+        ("[sh]shell"                . shell)
+        ("[de]debug-elisp"          . edebug-defun)
+        ("dired"                    . dired)))
