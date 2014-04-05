@@ -28,59 +28,6 @@
                    (abbreviate-file-name (buffer-file-name))
                  "%b"))))
 
-
-(unless (require 'rainbow-mode nil t)
-  (with-temp-buffer
-    (url-insert-file-contents
-     "http://git.savannah.gnu.org/cgit/emacs/elpa.git/plain/packages/rainbow-mode/rainbow-mode.el")
-    (package-install-from-buffer)))
-
-(dolist (hook '(css-mode-hook
-                html-mode-hook
-                js-mode-hook
-                emacs-lisp-mode-hook
-                org-mode-hook
-                text-mode-hook))
-  (add-hook hook 'rainbow-mode))
-
-;; (defface  my-parens       `((((class color)) (:foreground "#BEA75D"))) "custom parens"  :group 'faces)
-;; (defface  my-braces       `((((class color)) (:foreground ,sol-blue  ))) "custom braces"  :group 'faces)
-;; (defface  my-brackets     `((((class color)) (:foreground ,sol-violet))) "custom brackets" :group 'faces)
-;; (defface  my-dot          `((((class color)) (:foreground "#BEA75D"))) "custom brackets" :group 'faces)
-;; (defface  my-semis        `((((class color)) (:foreground "#BEA75D"))) "custom semicolons" :group 'faces)
-;; (defface  my-double-quote `((((class color)) (:foreground ,sol-red))) "custom special" :group 'faces)
-
-;; (defvar tweak-syntax-blacklist '(magit-status-mode
-;;                                  magit-log-mode
-;;                                  magit-commit-mode
-;;                                  magit-branch-manager-mode
-;;                                  deft-mode
-;;                                  ruby-mode
-;;                                  haml-mode
-;;                                  web-mode
-;;                                  gfm-mode
-;;                                  org-mode
-;;                                  erc-mode))
-
-;; (defun tweak-syntax ()
-;;   (if (not (member major-mode tweak-syntax-blacklist))
-;;       (mapcar (lambda (x) (font-lock-add-keywords nil x))
-;;               '((("#?['`]*(\\|)" . 'my-parens))
-;;                 (("#?\\^?{\\|}" . 'my-braces))
-;;                 (("\\[\\|\\]" . 'my-brackets))
-;;                 (("\\." . 'my-dot))
-;;                 (("; *$" . 'my-semis))
-;;                 (("#?\"" 0 'my-double-quote prepend))
-;;                 (("#?\'" 0 'my-double-quote prepend))
-;;                 (("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 'font-lock-warning-face t))))))
-
-
-
-;; (add-hook 'after-change-major-mode-hook 'tweak-syntax)
-
-;; (provide 'my-defuns)
-
-
 (defmacro with-theme-colors (&rest body)
   `(let ((dark1 "#2b2b2b")
          (dark2 "#272935")
@@ -99,6 +46,59 @@
          (purple "#b6b3eb")
          (brown "#bc9458"))
      ,@body))
+
+
+
+(unless (require 'rainbow-mode nil t)
+  (with-temp-buffer
+    (url-insert-file-contents
+     "http://git.savannah.gnu.org/cgit/emacs/elpa.git/plain/packages/rainbow-mode/rainbow-mode.el")
+    (package-install-from-buffer)))
+
+(dolist (hook '(css-mode-hook
+                html-mode-hook
+                js-mode-hook
+                emacs-lisp-mode-hook
+                org-mode-hook
+                text-mode-hook))
+  (add-hook hook 'rainbow-mode))
+
+(with-theme-colors
+ (defface  my-parens       `((((class color)) (:foreground ,dark4))) "custom parens"  :group 'faces)
+ (defface  my-braces       `((((class color)) (:foreground ,blue  ))) "custom braces"  :group 'faces)
+ (defface  my-brackets     `((((class color)) (:foreground ,purple))) "custom brackets" :group 'faces)
+ (defface  my-dot          `((((class color)) (:foreground ,dark4))) "custom brackets" :group 'faces)
+ (defface  my-semis        `((((class color)) (:foreground ,dark4))) "custom semicolons" :group 'faces)
+ (defface  my-double-quote `((((class color)) (:foreground ,darkgreen))) "custom special" :group 'faces))
+
+(defvar tweak-syntax-blacklist '(magit-status-mode
+                                 magit-log-mode
+                                 magit-commit-mode
+                                 magit-branch-manager-mode
+                                 deft-mode
+                                 ruby-mode
+                                 haml-mode
+                                 web-mode
+                                 gfm-mode
+                                 org-mode
+                                 erc-mode))
+
+(defun tweak-syntax ()
+  (if (not (member major-mode tweak-syntax-blacklist))
+      (mapcar (lambda (x) (font-lock-add-keywords nil x))
+              '((("#?['`]*(\\|)" . 'my-parens))
+                (("#?\\^?{\\|}" . 'my-braces))
+                (("\\[\\|\\]" . 'my-brackets))
+                (("\\." . 'my-dot))
+                (("; *$" . 'my-semis))
+                (("#?\"" 0 'my-double-quote prepend))
+                (("#?\'" 0 'my-double-quote prepend))
+                (("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 'font-lock-warning-face t))))))
+
+
+
+(add-hook 'after-change-major-mode-hook 'tweak-syntax)
+
 
 
 
