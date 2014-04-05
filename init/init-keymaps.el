@@ -95,4 +95,5 @@
         ("erc"                      . start-erc)
         ("[sh]shell"                . shell)
         ("[de]debug-elisp"          . edebug-defun)
+        ("[proj]ect"                . switch-to-local-project)
         ("dired"                    . dired)))

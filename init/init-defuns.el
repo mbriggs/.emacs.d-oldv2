@@ -1,5 +1,8 @@
 (provide 'init-defuns)
 
+(quelpa 'dash)
+(eval-after-load "dash" '(dash-enable-font-lock))
+
 (defun duplicate-region ()
   (interactive)
   (kill-region (region-beginning) (region-end))
@@ -126,6 +129,21 @@
   (if buffer-file-name
       (setq default-directory
             (file-name-directory buffer-file-name))))
+
+(defun switch-to-local-project ()
+  (interactive)
+  (let* ((prompt "Switch to project: ")
+         (project-dir "~/src")
+         (choices (actionable-files-in-directory project-dir))
+         (project (ido-completing-read prompt choices nil t)))
+
+    (find-file (concat project-dir "/" project))))
+
+(defun actionable-files-in-directory (dir)
+  (let ((files (directory-files dir))
+        (blacklist '(".DS_Store" "." "..")))
+    (-difference files blacklist)))
+
 
 (defmacro allow-line-as-region-for-function (orig-function)
 `(defun ,(intern (concat (symbol-name orig-function) "-or-line"))

@@ -32,6 +32,7 @@
                  init-ack
                  init-sass
                  init-anzu
+                 init-clojure
                  init-crontab
                  init-deft
 

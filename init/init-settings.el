@@ -34,7 +34,7 @@
 (set-fringe-style -1)
 (tooltip-mode -1)
 
-
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (setq default-indicate-empty-lines t)
 (recentf-mode 1)

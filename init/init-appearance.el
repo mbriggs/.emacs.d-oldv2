@@ -1,6 +1,7 @@
 (provide 'init-appearance)
 
 
+
 (quelpa '(base16-emacs
 	  :repo "neil477/base16-emacs"
 	  :fetcher github))
@@ -98,3 +99,18 @@
          (purple "#b6b3eb")
          (brown "#bc9458"))
      ,@body))
+
+
+
+
+
+;; (quelpa 'fill-column-indicator)
+;; (add-hook 'after-init-hook
+;;           (lambda ()
+;;             (setq fci-rule-column 90)
+;;             (with-theme-colors
+;;              (setq fci-rule-color dark3))
+
+;;             (define-globalized-minor-mode global-fci-mode fci-mode
+;;               (lambda () (fci-mode 1)))
+;;             (global-fci-mode 1)))
