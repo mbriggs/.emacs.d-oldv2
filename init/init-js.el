@@ -16,10 +16,14 @@
   `(setq coffee-js-mode preferred-javascript-mode
          coffee-tab-width preferred-javascript-indent-level))
 
-(eval-after-load 'js3-mode
-  '(font-lock-add-keywords
-    'js3-mode `(("\\(function\\)("
-                 (0 (progn (compose-region (match-beginning 1)
-                                           (match-end 1) "λ")
-                           nil))))))
+(font-lock-add-keywords
+ 'js3-mode `(("function *([^)]*) *{ *\\(return\\) "
+              (0 (progn (compose-region (match-beginning 1)
+                                        (match-end 1) "\u2190")
+                        nil)))))
 
+(font-lock-add-keywords
+ 'js3-mode `(("\\(function\\)("
+              (0 (progn (compose-region (match-beginning 1)
+                                        (match-end 1) "λ")
+                        nil)))))

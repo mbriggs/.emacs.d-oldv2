@@ -78,9 +78,9 @@
     (save-excursion
       (goto-char (point-min))
       (when (not (string-match "^/\\*global " (current-line)))
-          (newline)
-          (forward-line -1)
-          (insert "/*global */"))
+        (newline)
+        (forward-line -1)
+        (insert "/*global */"))
       (while (not (string-match "*/" (current-line)))
         (next-line))
       (end-of-line)
@@ -146,19 +146,19 @@
 
 
 (defmacro allow-line-as-region-for-function (orig-function)
-`(defun ,(intern (concat (symbol-name orig-function) "-or-line"))
-   ()
-   ,(format "Like `%s', but acts on the current line if mark is not active."
-            orig-function)
-   (interactive)
-   (if mark-active
-       (call-interactively (function ,orig-function))
-     (save-excursion
-       ;; define a region (temporarily) -- so any C-u prefixes etc. are preserved.
-       (beginning-of-line)
-       (set-mark (point))
-       (end-of-line)
-       (call-interactively (function ,orig-function))))))
+  `(defun ,(intern (concat (symbol-name orig-function) "-or-line"))
+       ()
+     ,(format "Like `%s', but acts on the current line if mark is not active."
+              orig-function)
+     (interactive)
+     (if mark-active
+         (call-interactively (function ,orig-function))
+       (save-excursion
+         ;; define a region (temporarily) -- so any C-u prefixes etc. are preserved.
+         (beginning-of-line)
+         (set-mark (point))
+         (end-of-line)
+         (call-interactively (function ,orig-function))))))
 
 (allow-line-as-region-for-function comment-or-uncomment-region)
 
@@ -173,3 +173,42 @@
           (delete-file filename)
           (message "Deleted file %s" filename)
           (kill-buffer))))))
+
+(defun rotate-windows ()
+  "Rotate your windows"
+  (interactive)
+  (cond ((not (> (count-windows)1))
+         (message "You can't rotate a single window!"))
+        (t
+         (setq i 1)
+         (setq numWindows (count-windows))
+
+         (while  (< i numWindows)
+           (let* (
+                  (w1 (elt (window-list) i))
+                  (w2 (elt (window-list) (+ (% i numWindows) 1)))
+
+                  (b1 (window-buffer w1))
+                  (b2 (window-buffer w2))
+
+                  (s1 (window-start w1))
+                  (s2 (window-start w2)))
+             (set-window-buffer w1  b2)
+             (set-window-buffer w2 b1)
+             (set-window-start w1 s2)
+             (set-window-start w2 s1)
+             (setq i (1+ i)))))))
+
+(defun create-scratch-buffer ()
+  "create a new scratch buffer to work in. (could be *scratch* - *scratchX*)"
+  (interactive)
+  (let ((n 0)
+        bufname)
+    (while (progn
+             (setq bufname (concat "*scratch"
+                                   (if (= n 0) "" (int-to-string n))
+                                   "*"))
+             (setq n (1+ n))
+             (get-buffer bufname)))
+    (switch-to-buffer (get-buffer-create bufname))
+    (emacs-lisp-mode)))

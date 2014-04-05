@@ -11,8 +11,6 @@
 
 (setq projectile-completion-system 'grizzl)
 
-(eval-after-load "grizzl"
-  '())
 (add-hook 'grizzl-mode-hook
           (lambda ()
             (define-key *grizzl-keymap* (kbd "M-n") 'grizzl-set-selection-1)
