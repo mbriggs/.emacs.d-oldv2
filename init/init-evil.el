@@ -7,8 +7,8 @@
 (global-surround-mode 1)
 (evil-mode 1)
 
-;;; drop some maps
 
+(global-set-key (kbd "M-;") 'ace-jump-word-mode)
 (define-key evil-normal-state-map (kbd "M-.") nil)
 (define-key evil-motion-state-map (kbd "SPC") #'evil-ace-jump-word-mode)
 (define-key evil-operator-state-map (kbd "SPC") #'evil-ace-jump-word-mode)
