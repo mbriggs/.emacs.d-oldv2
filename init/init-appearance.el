@@ -20,7 +20,8 @@
           (lambda ()
             (when (and
                    (not (eq major-mode 'Custom-mode))
-                   (not (eq major-mode 'shell-mode)))
+                   (not (eq major-mode 'shell-mode))
+                   (not (eq major-mode 'ibuffer-mode)))
               (setq show-trailing-whitespace t))))
 
 (setq frame-title-format

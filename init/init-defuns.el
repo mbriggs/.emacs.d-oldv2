@@ -1,6 +1,7 @@
 (provide 'init-defuns)
 
 (quelpa 'dash)
+(quelpa 's)
 (eval-after-load "dash" '(dash-enable-font-lock))
 
 (defun duplicate-region ()
@@ -212,3 +213,10 @@
              (get-buffer bufname)))
     (switch-to-buffer (get-buffer-create bufname))
     (emacs-lisp-mode)))
+
+(defun only-current-buffer ()
+  (interactive)
+    (mapc 'kill-buffer
+          (-filter
+           (lambda (buf) (not (s-starts-with? "*" (buffer-name buf))))
+           (cdr (buffer-list (current-buffer))))))

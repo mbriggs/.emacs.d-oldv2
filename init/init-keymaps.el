@@ -1,4 +1,7 @@
 (provide 'init-keymaps)
+(quelpa '(etags-select :fetcher wiki))
+
+
 
 ;;; global
 
@@ -11,7 +14,9 @@
 (global-set-key (kbd "M-v") 'evil-paste-after)
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-w") 'quit-window)
+(global-set-key (kbd "M-W") 'only-current-buffer)
 (global-set-key (kbd "M-q") 'save-buffers-kill-emacs)
+(global-set-key (kbd "M-.") 'etags-select-find-tag)
 
 ;;; normal
 
@@ -57,6 +62,7 @@
   (kbd "M-d") 'duplicate-line
   (kbd "M-<backspace>") 'kill-whole-line
   (kbd "M-J") 'evil-join
+  (kbd "M-S-<return>") 'evil-open-above
   (kbd "M-<return>") 'evil-open-below
   (kbd "M-<left>") 'evil-first-non-blank
   (kbd "M-<right>") 'move-end-of-line)
@@ -77,6 +83,7 @@
 (mapc 'ex-mode-mapping
       '(("!"                        . shell-command)
         ("log"                      . magit-log)
+        ("[buff]ers"                . ibuffer)
         ("[br]branch"               . magit-branch-manager)
         ("deft"                     . deft)
         ("reset-directory"          . reset-current-dir)
@@ -96,4 +103,5 @@
         ("[sh]shell"                . shell)
         ("[de]debug-elisp"          . edebug-defun)
         ("[proj]ect"                . switch-to-local-project)
+        ("occur"                    . projectile-multi-occur)
         ("dired"                    . dired)))
