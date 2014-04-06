@@ -6,3 +6,6 @@
 
 (global-set-key (kbd "<f1>") 'magit-status)
 (define-key evil-normal-state-map "B" 'magit-checkout)
+
+(add-hook 'git-commit-mode-hook
+          '(lambda () (evil-emacs-state 1)))
