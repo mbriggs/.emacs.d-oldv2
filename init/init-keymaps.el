@@ -61,11 +61,13 @@
 (evil-define-key 'insert global-map
   (kbd "M-d") 'duplicate-line
   (kbd "M-<backspace>") 'kill-whole-line
+  (kbd "A-<backspace>") 'backward-kill-word
   (kbd "M-J") 'evil-join
   (kbd "M-S-<return>") 'evil-open-above
   (kbd "M-<return>") 'evil-open-below
   (kbd "M-<left>") 'evil-first-non-blank
   (kbd "M-<right>") 'move-end-of-line)
+
 
 (global-set-key (kbd "M-f") 'isearch-forward)
 (global-set-key (kbd "M-r") 'isearch-backward)
