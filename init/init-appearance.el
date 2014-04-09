@@ -49,6 +49,11 @@
      ,@body))
 
 
+(with-theme-colors
+ (set-face-attribute 'region nil
+                     :background dark4
+                     :foreground light3))
+
 
 (unless (require 'rainbow-mode nil t)
   (with-temp-buffer

@@ -7,7 +7,8 @@
 (eval-after-load "company"
   '(progn
      (setq company-idle-delay t)
-     (setq company-minimum-prefix-length 4)
+     (setq company-minimum-prefix-length 3)
+     (setq company-dabbrev-downcase nil)
      (setq company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
                                company-preview-frontend
                                company-echo-metadata-frontend))

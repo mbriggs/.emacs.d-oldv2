@@ -7,6 +7,7 @@
 (quelpa 'rspec-mode)
 (quelpa 'ruby-refactor)
 (quelpa 'enh-ruby-mode)
+(quelpa 'rails-log-mode)
 
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
