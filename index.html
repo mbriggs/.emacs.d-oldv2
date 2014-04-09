@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content=".emacs.d : Emacs configuration of an ex-vimmer" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>.emacs.d</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mbriggs/.emacs.d">View on GitHub</a>
+
+          <h1 id="project_title">.emacs.d</h1>
+          <h2 id="project_tagline">Emacs configuration of an ex-vimmer</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mbriggs/.emacs.d/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mbriggs/.emacs.d/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="my-emacs-config" class="anchor" href="#my-emacs-config"><span class="octicon octicon-link"></span></a>My Emacs Config</h1>
+
+<blockquote>
+<blockquote>
+<p>"Emacs outshines all other editing
+software in approximately the same way that the noonday sun does the
+stars. It is not just bigger and brighter; it simply makes everything
+else vanish."
+<em>-Neal Stephenson, "In the Beginning was the Command
+Line"</em></p>
+
+<p>"Show me your ~/.emacs and I will tell you who you are."
+<em>-Bogdan Maryniuk</em></p>
+
+<p>"Emacs is like a laser guided missile. It only has to be slightly
+mis-configured to ruin your whole day."
+<em>-Sean McGrathi</em></p>
+
+<p>"While any text editor can save your files, only Emacs can save your
+soul."
+<em>-Per Abrahamseni</em></p>
+
+<p>"Lisp isn't a language, it's a building material."
+<em>- Alan Kay</em></p>
+
+<p>"The reasonable man adapts himself to Emacs; the unreasonable one
+persists in trying to adapt Emacs to himself. Therefore all progress
+depends on the unreasonable man."
+<em>- G.B. Shaw</em></p>
+
+<p>"Compared to Emacs Wizards, graphical-IDE users are the equivalent
+of amateur musicians, pawing at their instrument with a sort of
+desperation. An IDE has blinking lights and pretty dialogs that you
+can't interact with properly, and gives newbies a nice comfortable
+sense of control. But that control is extremely crude, and all serious
+programmers prefer something that gives them more power."
+<em>- Steve Yegge</em></p>
+</blockquote>
+</blockquote>
+
+<h2>
+<a name="philosophy" class="anchor" href="#philosophy"><span class="octicon octicon-link"></span></a>Philosophy</h2>
+
+<p>New iteration of my emacs configuration. Built around a few principals
+that probably don't apply to many people other then me</p>
+
+<ul>
+<li>I don't really like the emacs key scheme.</li>
+<li>I love modal editing</li>
+<li>I hate vim</li>
+<li>I love lisp, and any reason to use it</li>
+<li>I like my editor to do a lot of work for me, and I like hacking on
+it</li>
+</ul><p>Evil mode is the best vim implementation that I know about that isn't
+vim. Emacs is a much better platform then vim. That is why this configuration
+exists.</p>
+
+<p>Also, line numbers are overrated. No linum mode.</p>
+
+<h2>
+<a name="organization" class="anchor" href="#organization"><span class="octicon octicon-link"></span></a>Organization</h2>
+
+<p><code>init.el</code> does as little as possible. Configuration is done in <code>init/init-*</code>,
+and is as modular as possible (so that when something goes wrong, you can
+comment out modules).</p>
+
+<p>Package management is done by <code>quelpa</code>, which will use MELPA when possible
+to build emacs packages. I think it is a step up from <code>el-get</code>, and find it
+to be much more stable. <code>quelpa</code> will bootstrap itself and all packages when
+emacs loads.</p>
+
+<p>My crazy mappings are mostly in <code>init-keymaps</code>, and are inspired by all the
+different editors I have used before. Both vim and emacs use different
+philosophies to have all key mappings available at all times. I prefer instead
+to have the things I use frequently quickly available, even if it means not
+having the things I don't use easily available in a standard location.</p>
+
+<h2>
+<a name="dependancies" class="anchor" href="#dependancies"><span class="octicon octicon-link"></span></a>Dependancies</h2>
+
+<p>osx:</p>
+
+<p><code>brew install ctags node</code></p>
+
+<h2>
+<a name="if-ctags-isnt-pointing-at-the-right-version" class="anchor" href="#if-ctags-isnt-pointing-at-the-right-version"><span class="octicon octicon-link"></span></a>If ctags isn't pointing at the right version</h2>
+
+<p>on ubuntu run</p>
+
+<p><code>sudo update-alternatives --config ctags</code></p>
+
+<p>and choose <code>ctags-exuberant</code></p>
+
+<p>on osx lion do</p>
+
+<p><code>sudo mv /usr/bin/ctags /usr/bin/ctags-old</code></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">.emacs.d maintained by <a href="https://github.com/mbriggs">mbriggs</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
