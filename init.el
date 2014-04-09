@@ -35,6 +35,7 @@
                  init-clojure
                  init-crontab
                  init-deft
+                 init-session
 
                  init-keymaps
                  init-settings))

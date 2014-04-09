@@ -32,6 +32,7 @@
 (define-key evil-normal-state-map "Y" 'copy-to-end-of-line)
 (define-key evil-normal-state-map "L" 'evil-last-non-blank)
 (define-key evil-normal-state-map (kbd "M-n") 'next-error)
+(define-key evil-normal-state-map (kbd "M-N") 'session-jump-to-last-change)
 (define-key evil-normal-state-map (kbd "M-p") 'previous-error)
 (define-key evil-normal-state-map (kbd "<tab>") 'indent-for-tab-command)
 (define-key evil-normal-state-map (kbd "<C-return>") 'new-line-in-normal-mode)
