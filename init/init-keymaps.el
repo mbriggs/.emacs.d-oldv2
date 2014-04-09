@@ -1,8 +1,6 @@
 (provide 'init-keymaps)
 (quelpa '(etags-select :fetcher wiki))
 
-
-
 ;;; global
 
 (global-set-key (kbd "M-a") 'mark-whole-buffer)
@@ -18,7 +16,7 @@
 (global-set-key (kbd "M-q") 'save-buffers-kill-emacs)
 (global-set-key (kbd "M-.") 'etags-select-find-tag)
 (global-set-key (kbd "M-o") 'occur)
-(global-set-key (kbd "M-O") 'multi-occur)
+(global-set-key (kbd "M-S-o") 'multi-occur)
 
 ;;; normal
 
@@ -32,7 +30,7 @@
 (define-key evil-normal-state-map "Y" 'copy-to-end-of-line)
 (define-key evil-normal-state-map "L" 'evil-last-non-blank)
 (define-key evil-normal-state-map (kbd "M-n") 'next-error)
-(define-key evil-normal-state-map (kbd "M-N") 'session-jump-to-last-change)
+(define-key evil-normal-state-map (kbd "M-P") 'session-jump-to-last-change)
 (define-key evil-normal-state-map (kbd "M-p") 'previous-error)
 (define-key evil-normal-state-map (kbd "<tab>") 'indent-for-tab-command)
 (define-key evil-normal-state-map (kbd "<C-return>") 'new-line-in-normal-mode)
