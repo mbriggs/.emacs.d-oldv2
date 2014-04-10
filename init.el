@@ -49,6 +49,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(column-enforce-face ((t (:background "#3a4055"))))
  '(company-preview ((t (:foreground "#d4cfc9"))))
  '(company-preview-common ((t (:foreground "controlShadowColor"))))
  '(company-preview-search ((t (:inherit company-preview))))
@@ -61,3 +62,9 @@
  '(sp-show-pair-enclosing ((t (:background "#6d9cbe"))))
  '(sp-show-pair-match-face ((t (:background "#6d9cbe"))))
  '(trailing-whitespace ((t (:background "#3a4055")))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(session-use-package t nil (session)))

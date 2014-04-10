@@ -23,6 +23,7 @@
 (define-key evil-normal-state-map " m" 'evil-jump-item)
 (define-key evil-normal-state-map ",," 'evil-buffer)
 (define-key evil-normal-state-map "-" 'delete-other-windows)
+(define-key evil-normal-state-map "B" 'ace-jump-buffer)
 (define-key evil-normal-state-map "b" 'ido-switch-buffer)
 (define-key evil-normal-state-map "E" 'ido-find-file)
 (define-key evil-normal-state-map "\\" 'evil-repeat-find-char-reverse)

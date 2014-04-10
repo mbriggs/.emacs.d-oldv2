@@ -107,7 +107,18 @@
 
 
 
+(quelpa 'highlight-cl)
+(require 'highlight-cl)
+(add-hook 'emacs-lisp-mode-hook 'highlight-cl-add-font-lock-keywords)
 
+(quelpa 'golden-ratio)
+(require 'golden-ratio)
+(golden-ratio-mode 1)
+(setq golden-ratio-extra-commands '(other-window evil-window-next))
+
+(quelpa 'column-enforce-mode)
+(require 'column-enforce-mode)
+(add-hook 'after-change-major-mode-hook '100-column-rule)
 
 
 ;; (quelpa 'fill-column-indicator)
