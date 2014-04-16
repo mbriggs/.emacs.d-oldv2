@@ -113,7 +113,6 @@
 
 (quelpa 'golden-ratio)
 (require 'golden-ratio)
-(golden-ratio-mode 1)
 (setq golden-ratio-extra-commands '(other-window evil-window-next))
 
 (quelpa 'column-enforce-mode)

@@ -1,5 +1,6 @@
 (provide 'init-keymaps)
 (quelpa '(etags-select :fetcher wiki))
+(quelpa 'help-fns+)
 
 ;;; global
 
@@ -107,6 +108,7 @@
         ("[grp]gist-region-private" . yagist-region-private)
         ("erc"                      . start-erc)
         ("[sh]shell"                . shell)
+        ("mysql"                    . sql-mysql)
         ("[de]debug-elisp"          . edebug-defun)
         ("[proj]ect"                . switch-to-local-project)
         ("occur"                    . projectile-multi-occur)
