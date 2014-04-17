@@ -33,6 +33,8 @@
 (column-number-mode t)
 (set-fringe-style '(8 . 0))
 (tooltip-mode -1)
+(setq-default indicate-buffer-boundaries 'left)
+(setq-default indicate-empty-lines nil)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
