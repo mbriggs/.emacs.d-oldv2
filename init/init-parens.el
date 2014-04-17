@@ -2,7 +2,7 @@
 
 (quelpa '(smartparens :fetcher github :repo "Fuco1/smartparens"))
 (require 'smartparens-config)
-(smartparens-global-mode t)
+(show-smartparens-global-mode +1)
 
 (with-theme-colors
  (set-face-attribute 'sp-show-pair-match-face nil

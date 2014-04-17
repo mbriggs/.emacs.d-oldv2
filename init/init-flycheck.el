@@ -9,4 +9,4 @@
 (add-hook 'lisp-interaction-mode-hook 'flycheck-mode)
 (add-hook 'js2-mode-hook 'flycheck-mode)
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
-(setq flycheck-indication-mode 'left-fringe)
+(setq flycheck-indication-mode nil)

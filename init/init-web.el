@@ -11,3 +11,12 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.handlebars\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(require 'web-mode)
+
+(with-theme-colors
+ (set-face-attribute 'web-mode-html-tag-face nil
+                     :foreground purple)
+ (set-face-attribute 'web-mode-html-tag-bracket-face nil
+                     :foreground dark3)
+ (set-face-attribute 'web-mode-html-attr-name-face nil
+                     :foreground blue))

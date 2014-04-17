@@ -31,7 +31,7 @@
 (blink-cursor-mode t)
 (show-paren-mode t)
 (column-number-mode t)
-(set-fringe-style -1)
+(set-fringe-style '(8 . 0))
 (tooltip-mode -1)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -42,3 +42,8 @@
       recentf-exclude '("/tmp/" "/ssh:"))
 
 
+
+(defun save-all ()
+  (interactive)
+  (save-some-buffers t))
+(add-hook 'focus-out-hook 'save-all)
