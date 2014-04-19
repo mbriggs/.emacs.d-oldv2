@@ -10,7 +10,6 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "M-j") 'other-window)
 (global-set-key (kbd "M-b") 'ibuffer)
-(global-set-key (kbd "M-v") 'evil-paste-after)
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-w") 'quit-window)
 (global-set-key (kbd "M-W") 'only-current-buffer)
@@ -31,6 +30,7 @@
 (define-key evil-normal-state-map "H" 'evil-first-non-blank)
 (define-key evil-normal-state-map "Y" 'copy-to-end-of-line)
 (define-key evil-normal-state-map "L" 'evil-last-non-blank)
+(define-key evil-normal-state-map (kbd "M-v") 'evil-paste-after)
 (define-key evil-normal-state-map (kbd "M-n") 'next-error)
 (define-key evil-normal-state-map (kbd "M-P") 'session-jump-to-last-change)
 (define-key evil-normal-state-map (kbd "M-p") 'previous-error)
@@ -54,7 +54,6 @@
 
 ;;; editing
 
-
 (global-set-key (kbd "M-q") 'evil-quit-all)
 (evil-define-key 'visual global-map
   (kbd "M-d") 'duplicate-region)
@@ -68,6 +67,7 @@
   (kbd "M-<backspace>") 'kill-whole-line
   (kbd "A-<backspace>") 'backward-kill-word
   (kbd "M-J") 'evil-join
+  (kbd "M-v") 'yank
   (kbd "M-S-<return>") 'evil-open-above
   (kbd "M-<return>") 'evil-open-below
   (kbd "M-<left>") 'evil-first-non-blank
