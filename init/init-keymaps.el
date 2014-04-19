@@ -111,6 +111,7 @@
         ("[sh]shell"                . shell)
         ("mysql"                    . sql-mysql)
         ("[de]debug-elisp"          . edebug-defun)
-        ("[proj]ect"                . switch-to-local-project)
+        ("[pr]oject"                . switch-to-local-project)
         ("occur"                    . projectile-multi-occur)
+        ("rubo"                     . rubocop-autocorrect-current-file)
         ("dired"                    . dired)))
