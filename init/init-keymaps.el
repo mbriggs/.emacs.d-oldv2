@@ -16,6 +16,7 @@
 (global-set-key (kbd "M-q") 'save-buffers-kill-emacs)
 (global-set-key (kbd "M-.") 'etags-select-find-tag)
 (global-set-key (kbd "M-o") 'occur)
+(global-set-key (kbd "<f3>") 'flycheck-list-errors)
 (global-set-key (kbd "M-S-o") 'multi-occur)
 
 ;;; normal
