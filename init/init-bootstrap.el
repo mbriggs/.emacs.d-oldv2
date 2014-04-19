@@ -17,6 +17,7 @@
 
 (modify-all-frames-parameters '((fullscreen . maximized)))
 (setq package-archives nil)
+(package-initialize)
 
 ;;; quelpa
 
