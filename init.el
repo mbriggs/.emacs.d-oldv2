@@ -59,8 +59,9 @@
  '(company-tooltip-common ((t (:inherit company-tooltip))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :foreground "#f9f7f3"))))
  '(company-tooltip-selection ((t (:inherit company-tooltip :background "#6d9cbe"))))
- '(sp-show-pair-enclosing ((t (:background "#6d9cbe"))))
- '(sp-show-pair-match-face ((t (:background "#6d9cbe"))))
+ '(show-paren-match ((t (:background "#5a647e" :foreground "#d4cfc9"))))
+ '(sp-show-pair-enclosing ((t (:background "#5a647e" :foreground "#d4cfc9"))))
+ '(sp-show-pair-match-face ((t (:background "#5a647e" :foreground "#d4cfc9"))))
  '(trailing-whitespace ((t (:background "#3a4055")))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

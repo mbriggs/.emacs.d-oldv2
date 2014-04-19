@@ -50,9 +50,15 @@
 
 
 (with-theme-colors
+ (set-face-attribute 'fringe nil
+                     :background dark3
+                     :foreground blue)
  (set-face-attribute 'region nil
                      :background dark4
                      :foreground light3))
+
+
+
 
 
 (unless (require 'rainbow-mode nil t)
@@ -117,16 +123,8 @@
 
 (quelpa 'column-enforce-mode)
 (require 'column-enforce-mode)
-(add-hook 'after-change-major-mode-hook '100-column-rule)
+(defvar *dont-column-enforce* '(shell-mode))
 
-
-;; (quelpa 'fill-column-indicator)
-;; (add-hook 'after-init-hook
-;;           (lambda ()
-;;             (setq fci-rule-column 90)
-;;             (with-theme-colors
-;;              (setq fci-rule-color dark3))
-
-;;             (define-globalized-minor-mode global-fci-mode fci-mode
-;;               (lambda () (fci-mode 1)))
-;;             (global-fci-mode 1)))
+(add-hook 'after-change-major-mode-hook
+          '(lambda ()
+             (unless (-contains? *dont-column-enforce* major-mode) (100-column-rule))))

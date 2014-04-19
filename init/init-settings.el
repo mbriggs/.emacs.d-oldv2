@@ -33,12 +33,11 @@
 (column-number-mode t)
 (set-fringe-style '(8 . 0))
 (tooltip-mode -1)
-(setq-default indicate-buffer-boundaries 'left)
-(setq-default indicate-empty-lines nil)
+(setq-default indicate-buffer-boundaries nil)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(setq default-indicate-empty-lines t)
+(setq indicate-empty-lines nil)
 (recentf-mode 1)
 (setq recentf-max-saved-items 80
       recentf-exclude '("/tmp/" "/ssh:"))
