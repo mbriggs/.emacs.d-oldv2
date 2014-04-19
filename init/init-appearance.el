@@ -5,6 +5,8 @@
 (quelpa '(base16-emacs
 	  :repo "neil477/base16-emacs"
 	  :fetcher github))
+(quelpa 'dash)
+(require 'dash)
 
 (require 'base16-railscasts-theme)
 

@@ -16,6 +16,8 @@
   `(setq coffee-js-mode preferred-javascript-mode
          coffee-tab-width preferred-javascript-indent-level))
 
+(define-key evil-normal-state-map ",g" 'js3-add-to-globals)
+
 (font-lock-add-keywords
  'js3-mode `(("function *([^)]*) *{ *\\(return\\) "
               (0 (progn (compose-region (match-beginning 1)

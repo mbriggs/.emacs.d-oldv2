@@ -23,6 +23,7 @@
       uniquify-separator ":")
 
 (global-auto-revert-mode 1)
+(setq require-final-newline t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (delete-selection-mode t)
