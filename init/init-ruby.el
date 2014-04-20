@@ -15,6 +15,7 @@
 (quelpa 'rails-log-mode)
 (quelpa 'rubocop)
 (quelpa 'rbenv)
+(quelpa 'inf-ruby)
 
 (eval-after-load "rspec-mode"
   '(progn
