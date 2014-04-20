@@ -112,6 +112,7 @@
         ("mysql"                    . sql-mysql)
         ("[de]debug-elisp"          . edebug-defun)
         ("[pr]oject"                . switch-to-local-project)
+        ("rlog"                     . rails-log-show-development)
         ("occur"                    . projectile-multi-occur)
         ("rubo"                     . rubocop-autocorrect-current-file)
         ("dired"                    . dired)))
