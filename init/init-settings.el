@@ -18,8 +18,6 @@
 (setq initial-major-mode 'emacs-lisp-mode)
 (setq browse-url-generic-program "google-chrome")
 (setq initial-scratch-message nil)
-(setq ls-lisp-use-insert-directory-program t)
-(setq insert-directory-program "gls")
 
 (setq uniquify-buffer-name-style 'post-forward
       uniquify-separator ":")
