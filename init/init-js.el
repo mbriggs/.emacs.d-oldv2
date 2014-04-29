@@ -18,14 +18,14 @@
 
 (define-key evil-normal-state-map ",g" 'js3-add-to-globals)
 
-(font-lock-add-keywords
- 'js3-mode `(("function *([^)]*) *{ *\\(return\\) "
-              (0 (progn (compose-region (match-beginning 1)
-                                        (match-end 1) "\u2190")
-                        nil)))))
+;; (font-lock-add-keywords
+;;  'js3-mode `(("function *([^)]*) *{ *\\(return\\) "
+;;               (0 (progn (compose-region (match-beginning 1)
+;;                                         (match-end 1) "\u2190")
+;;                         nil)))))
 
-(font-lock-add-keywords
- 'js3-mode `(("\\(function\\)("
-              (0 (progn (compose-region (match-beginning 1)
-                                        (match-end 1) "λ")
-                        nil)))))
+;; (font-lock-add-keywords
+;;  'js3-mode `(("\\(function\\)("
+;;               (0 (progn (compose-region (match-beginning 1)
+;;                                         (match-end 1) "λ")
+;;                         nil)))))

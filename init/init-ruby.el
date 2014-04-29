@@ -1,5 +1,6 @@
 (provide 'init-ruby)
 
+(quelpa 'rbenv)
 (require 'rbenv)
 (global-rbenv-mode +1)
 (rbenv-use-global)
