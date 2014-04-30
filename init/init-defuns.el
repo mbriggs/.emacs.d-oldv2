@@ -11,6 +11,10 @@
   (vhl/clear-all)
   (yank))
 
+(defun ido-find-file-in-project-root ()
+  (interactive)
+  (ido-find-file-in-dir (projectile-project-root)))
+
 
 (defun duplicate-line ()
   (interactive)

@@ -19,6 +19,7 @@
 (global-set-key (kbd "M-o") 'occur)
 (global-set-key (kbd "<f3>") 'flycheck-list-errors)
 (global-set-key (kbd "M-S-o") 'multi-occur)
+(global-set-key (kbd "C-f") 'dired)
 
 ;;; normal
 
@@ -27,7 +28,8 @@
 (define-key evil-normal-state-map "-" 'delete-other-windows)
 (define-key evil-normal-state-map "B" 'ace-jump-buffer)
 (define-key evil-normal-state-map "b" 'ido-switch-buffer)
-(define-key evil-normal-state-map "E" 'ido-find-file)
+(define-key evil-normal-state-map "e" 'ido-find-file)
+(define-key evil-normal-state-map "E" 'ido-find-file-in-project-root)
 (define-key evil-normal-state-map "\\" 'evil-repeat-find-char-reverse)
 (define-key evil-normal-state-map "H" 'evil-first-non-blank)
 (define-key evil-normal-state-map "Y" 'copy-to-end-of-line)
