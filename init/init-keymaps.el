@@ -20,29 +20,26 @@
 (global-set-key (kbd "<f3>") 'flycheck-list-errors)
 (global-set-key (kbd "M-S-o") 'multi-occur)
 (global-set-key (kbd "C-f") 'dired)
+(global-set-key (kbd "M-v") 'evil-paste-after)
+(global-set-key (kbd "M-n") 'next-error)
+(global-set-key (kbd "M-P") 'session-jump-to-last-change)
+(global-set-key (kbd "M-p") 'previous-error)
+(global-set-key (kbd "M-j") 'evil-window-next)
+(global-set-key (kbd "C-SPC") 'comment-or-uncomment-region-or-line)
 
 ;;; normal
-
 (define-key evil-normal-state-map " m" 'evil-jump-item)
 (define-key evil-normal-state-map ",," 'evil-buffer)
 (define-key evil-normal-state-map "-" 'delete-other-windows)
-(define-key evil-normal-state-map "B" 'ace-jump-buffer)
-(define-key evil-normal-state-map "b" 'ido-switch-buffer)
+(define-key evil-normal-state-map "B" 'ido-switch-buffer)
 (define-key evil-normal-state-map "e" 'ido-find-file)
 (define-key evil-normal-state-map "E" 'ido-find-file-in-project-root)
 (define-key evil-normal-state-map "\\" 'evil-repeat-find-char-reverse)
 (define-key evil-normal-state-map "H" 'evil-first-non-blank)
 (define-key evil-normal-state-map "Y" 'copy-to-end-of-line)
 (define-key evil-normal-state-map "L" 'evil-last-non-blank)
-(define-key evil-normal-state-map (kbd "M-v") 'evil-paste-after)
-(define-key evil-normal-state-map (kbd "M-n") 'next-error)
-(define-key evil-normal-state-map (kbd "M-P") 'session-jump-to-last-change)
-(define-key evil-normal-state-map (kbd "M-p") 'previous-error)
 (define-key evil-normal-state-map (kbd "<tab>") 'indent-for-tab-command)
 (define-key evil-normal-state-map (kbd "<C-return>") 'new-line-in-normal-mode)
-(define-key evil-normal-state-map (kbd "C-w") 'delete-trailing-whitespace)
-(define-key evil-normal-state-map (kbd "M-j") 'evil-window-next)
-(define-key evil-normal-state-map (kbd "C-SPC") 'comment-or-uncomment-region-or-line)
 
 
 ;;; esc ALWAYS quits
