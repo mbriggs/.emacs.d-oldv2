@@ -24,7 +24,6 @@
                  init-yaml
                  init-ruby
                  init-multiple-cursors
-                 init-project-explorer
                  init-games
                  init-volatile-highlights
                  init-erc
