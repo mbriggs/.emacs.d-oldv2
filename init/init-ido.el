@@ -14,7 +14,7 @@
 (require 'flx-ido)
 (ido-mode 1)
 (ido-everywhere 1)
-(setq flx-ido-threshhold 1000)
+(setq flx-ido-threshhold 2000)
 (flx-ido-mode 1)
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
@@ -35,7 +35,7 @@
 (ido-mode t)
 (ido-hacks-mode 1)
 (ido-ubiquitous-initialize)
-(setq ido-enable-flex-matching t)
+(setq ido-enable-flex-matching nil)
 (setq ido-use-filename-at-point nil)
 (setq ido-auto-merge-work-directories-length -1)
 (setq ido-use-virtual-buffers t)
