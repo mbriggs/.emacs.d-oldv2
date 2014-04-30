@@ -15,5 +15,5 @@
 (defun ack-location ()
   (interactive)
   (let ((pattern (read-from-minibuffer "Ack: "))
-        (location (ido-read-directory-name "Location: " (eproject-root))))
+        (location (ido-read-directory-name "Location: " (projectile-project-root))))
     (ack-and-a-half pattern t location)))
