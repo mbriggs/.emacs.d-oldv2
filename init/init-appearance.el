@@ -23,7 +23,8 @@
             (when (and
                    (not (eq major-mode 'Custom-mode))
                    (not (eq major-mode 'shell-mode))
-                   (not (eq major-mode 'ibuffer-mode)))
+                   (not (eq major-mode 'ibuffer-mode))
+                   (not (eq major-mode 'prodigy-mode)))
               (setq show-trailing-whitespace t))))
 
 (setq frame-title-format
@@ -125,7 +126,7 @@
 
 (quelpa 'column-enforce-mode)
 (require 'column-enforce-mode)
-(defvar *dont-column-enforce* '(shell-mode))
+(defvar *dont-column-enforce* '(shell-mode prodigy-mode))
 
 (add-hook 'after-change-major-mode-hook
           '(lambda ()

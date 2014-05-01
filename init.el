@@ -36,6 +36,7 @@
                  init-deft
                  init-dired
                  init-session
+                 init-prodigy
 
                  init-keymaps
                  init-settings))

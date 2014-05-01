@@ -3,18 +3,19 @@
 (quelpa 'ido-vertical-mode)
 (quelpa 'ido-ubiquitous)
 (quelpa 'smex)
-(quelpa 'ido-hacks)
-(quelpa '(flx :repo "mbriggs/flx" :fetcher github))
+;; (quelpa 'ido-hacks)
+;; (quelpa '(flx :repo "mbriggs/flx" :fetcher github))
+(quelpa '(flx :repo "lewang/flx" :fetcher github :branch "fix-ido-not-narrowing"))
 
 (require 'ido)
-(require 'ido-hacks)
+;; (require 'ido-hacks)
 
 
 ;;; flx
 (require 'flx-ido)
 (ido-mode 1)
 (ido-everywhere 1)
-(setq flx-ido-threshhold 2000)
+(setq flx-ido-threshhold 500)
 (flx-ido-mode 1)
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
@@ -33,9 +34,9 @@
 (require 'ido-ubiquitous)
 (ido-vertical-mode 1)
 (ido-mode t)
-(ido-hacks-mode 1)
+;; (ido-hacks-mode 1)
 (ido-ubiquitous-initialize)
-(setq ido-enable-flex-matching nil)
+(setq ido-enable-flex-matching t)
 (setq ido-use-filename-at-point nil)
 (setq ido-auto-merge-work-directories-length -1)
 (setq ido-use-virtual-buffers t)
