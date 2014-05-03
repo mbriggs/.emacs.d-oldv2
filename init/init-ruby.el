@@ -25,7 +25,7 @@
      (setq rspec-use-spring-when-possible t)
 
      (evil-define-key 'normal enh-ruby-mode-map
-       ",t," 'rspec-toggle-spec-and-target
+       ",t," 'projectile-toggle-between-implementation-and-test
        ",tf" 'rspec-verify
        ",tt" 'rspec-verify-single
        ",tl" 'rspec-rerun)))

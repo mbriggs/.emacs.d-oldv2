@@ -38,6 +38,13 @@
   :ready-message "Listening On")
 
 (prodigy-define-service
+  :name "Wrap Browser"
+  :command "bundle"
+  :args '("exec" "rails" "server" "-p" "8181")
+  :cwd (my-source-path "wrap-browser")
+  :ready-message "worker=0 ready")
+
+(prodigy-define-service
   :name "Graphite"
   :command "run-graphite-devel-server.py"
   :args '("/opt/graphite")
