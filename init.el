@@ -38,6 +38,7 @@
                  init-session
                  init-pager
                  init-prodigy
+                 init-peepopen
 
                  init-keymaps
                  init-settings))
