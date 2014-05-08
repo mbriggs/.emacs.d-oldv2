@@ -1,3 +1,0 @@
-context "${1:context description}" do
-$0
-end

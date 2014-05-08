@@ -24,6 +24,7 @@
                    (not (eq major-mode 'Custom-mode))
                    (not (eq major-mode 'shell-mode))
                    (not (eq major-mode 'ibuffer-mode))
+                   (not (eq major-mode 'rspec-compilation-mode))
                    (not (eq major-mode 'prodigy-mode)))
               (setq show-trailing-whitespace t))))
 

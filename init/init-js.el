@@ -13,10 +13,14 @@
 
 (setq js-indent-level 2)
 (eval-after-load "coffee-mode"
-  `(setq coffee-js-mode preferred-javascript-mode
+  '(setq coffee-js-mode preferred-javascript-mode
          coffee-tab-width preferred-javascript-indent-level))
 
-(define-key evil-normal-state-map ",g" 'js3-add-to-globals)
+
+(eval-after-load "js3"
+  '(progn
+     (evil-define-key 'normal js3-mode-map ",g" 'js3-add-to-globals)
+     (define-key js3-mode-map (kbd "RET") 'reindent-then-newline-and-indent)))
 
 ;; (font-lock-add-keywords
 ;;  'js3-mode `(("function *([^)]*) *{ *\\(return\\) "

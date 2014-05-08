@@ -24,8 +24,19 @@
      (setq rspec-spec-command "rspec")
      (setq rspec-use-spring-when-possible t)
 
+     (define-key enh-ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
+
+     (evil-define-key 'visual enh-ruby-mode-map
+       ",rm" 'ruby-refactor-extract-to-method
+       ",rv" 'ruby-refactor-extract-local-variable
+       ",rl" 'ruby-refactor-extract-to-let)
+
      (evil-define-key 'normal enh-ruby-mode-map
        ",t," 'projectile-toggle-between-implementation-and-test
        ",tf" 'rspec-verify
        ",tt" 'rspec-verify-single
-       ",tl" 'rspec-rerun)))
+       ",ta" 'rspec-verify-all
+       ",tl" 'rspec-rerun
+       ",rv" 'ruby-refactor-extract-local-variable
+       ",ra" 'ruby-refactor-add-parameter
+       ",rl" 'ruby-refactor-extract-to-let)))

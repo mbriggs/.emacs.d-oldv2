@@ -7,6 +7,7 @@
 (push "/usr/local/share/npm/bin" exec-path)
 (push (expand-file-name "~/scripts") exec-path)
 (setenv "PATH" (concat "/usr/local/bin:" (expand-file-name "~/scripts") ":" (getenv "PATH")))
+(setenv "PAGER" "emacsclient")
 
 (cd "~")
 

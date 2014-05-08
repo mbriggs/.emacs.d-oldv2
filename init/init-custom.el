@@ -22,7 +22,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(enh-ruby-bounce-deep-indent t)
+ '(enh-ruby-use-ruby-mode-show-parens-config t)
  '(js3-auto-indent-p t)
  '(js3-highlight-external-variables nil)
  '(js3-highlight-level 3)
+ '(ruby-refactor-add-parens t)
+ '(ruby-refactor-let-position (quote closest))
  '(session-use-package t nil (session)))
