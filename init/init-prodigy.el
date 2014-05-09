@@ -16,19 +16,19 @@
 
 (prodigy-define-service
   :name "Vincent"
-  :command "puma"
-  :args '("-C" "-" "-t" "2:2" "-w" "2" "-p" "4567")
+  :command "unicorn"
+  :args '("-c" "config/unicorn.local.rb")
   :path `(,(my-source-path "image_server/bin"))
   :cwd (my-source-path "image_server")
-  :ready-message "booted")
+  :ready-message "worker=2 ready")
 
 (prodigy-define-service
-  :name "Vincent -- Shotgun"
-  :command "shotgun"
-  :args '("-p" "4567")
+  :name "Vincent rerun"
+  :command "bundle"
+  :args '("exec" "rerun" "--" "unicorn" "-c" "config/unicorn.local.rb")
   :path `(,(my-source-path "image_server/bin"))
   :cwd (my-source-path "image_server")
-  :ready-message "Listening")
+  :ready-message "worker=2 ready")
 
 (prodigy-define-service
   :name "Nuvango"

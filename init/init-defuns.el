@@ -156,6 +156,10 @@
 
     (find-file (concat project-dir "/" project))))
 
+(defun dired-to-emacs-dir ()
+  (interactive)
+  (dired "~/.emacs.d"))
+
 (defun actionable-files-in-directory (dir)
   (let ((files (directory-files dir))
         (blacklist '(".DS_Store" "." "..")))

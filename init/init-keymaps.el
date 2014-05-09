@@ -27,6 +27,8 @@
 (global-set-key (kbd "C-SPC") 'comment-or-uncomment-region-or-line)
 ;; (global-set-key (kbd "M-t") 'projectile-find-file)
 (global-set-key (kbd "M-t") 'peepopen-goto-file)
+(global-set-key (kbd "C-p") 'switch-to-local-project)
+(global-set-key (kbd "C-S-P") 'prodigy)
 
 ;;; normal
 (define-key evil-normal-state-map " m" 'evil-jump-item)
@@ -118,4 +120,4 @@
         ("rlog"                     . rails-log-show-development)
         ("occur"                    . projectile-multi-occur)
         ("rubo"                     . rubocop-autocorrect-current-file)
-        ("dired"                    . dired)))
+        ("[em]acs"                  . dired-to-emacs-dir)))
