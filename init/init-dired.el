@@ -10,6 +10,10 @@
 (define-key dired-mode-map (kbd "M-e") 'wdired-change-to-wdired-mode)
 (define-key dired-mode-map (kbd "TAB") 'dired-hide-details-mode)
 
+(define-key dired-mode-map (kbd "b") nil)
+(define-key dired-mode-map (kbd "e") nil)
+(define-key dired-mode-map (kbd "E") nil)
+
 (with-theme-colors
  (set-face-attribute 'diredp-dir-priv nil
                      :background dark2
