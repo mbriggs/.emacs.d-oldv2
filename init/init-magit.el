@@ -9,5 +9,9 @@
 (define-key evil-normal-state-map (kbd "<f4>") 'magit-checkout)
 (global-diff-hl-mode +1)
 
-(add-hook 'git-commit-mode-hook
-          '(lambda () (evil-emacs-state 1)))
+(require 'evil)
+(push 'git-commit-mode evil-emacs-state-modes)
+
+;; (add-hook 'git-commit-mode-hook
+;;           '(lambda ()
+;;              (goto-char (point-min))))
