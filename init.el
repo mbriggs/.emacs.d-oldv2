@@ -39,6 +39,7 @@
                  init-pager
                  init-prodigy
                  init-peepopen
+                 init-java
 
                  init-keymaps
                  init-settings))
