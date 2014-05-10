@@ -78,7 +78,25 @@ Dependancies
 
 osx:
 
-`brew install ctags node`
+    brew install ctags node checkstyle
+    sudo npm install -g jshint
+
+
+install [emacs pager](https://raw.githubusercontent.com/mbriggs/emacs-pager/master/emacs-pager)
+script somewhere onto your path.
+
+install peepopen. create a new applescript application with this
+
+    on open these_items
+        set this_item to item 1 of these_items
+        set file_path to (the POSIX path of this_item)
+        tell application "iTerm"
+            do shell script "/usr/local/bin/emacsclient -n " & file_path & ""
+        end tell
+    end open
+
+and dump in into /Applications
+
 
 If ctags isn't pointing at the right version
 --------------------------------------------
