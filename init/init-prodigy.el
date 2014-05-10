@@ -1,6 +1,8 @@
 (provide 'init-prodigy)
 
 (quelpa 'prodigy)
+(require 'dash)
+(require 's)
 
 (defvar my-source-directory "~/src")
 
@@ -11,13 +13,34 @@
 (push 'prodigy-view-mode evil-normal-state-modes)
 
 (eval-after-load "prodigy"
-  '(define-key prodigy-mode-map (kbd "SPC") 'prodigy-display-process))
+  '(progn
+     (define-key prodigy-mode-map (kbd "SPC") 'prodigy-display-process)
+     (setq prodigy-kill-process-buffer-on-stop t)))
+
+(defun is-prodigy-buffer-p (buffer-name)
+  (s-starts-with? "*prodigy-" buffer-name))
 
 
-(prodigy-define-service
-  :name "Vincent"
+
+(add-hook 'post-command-hook
+          (lambda ()
+            (let ((prodigy-buffers (-filter 'is-prodigy-buffer-p
+                                            (mapcar (function buffer-name)
+                                                    (buffer-list)))))
+              (-each prodigy-buffers 'scroll-buffer-to-bottom-when-inactive))))
+
+(prodigy-define-tag :name 'nuvango)
+
+(prodigy-define-service :name "Vincent"
   :command "unicorn"
-  :args '("-c" "config/unicorn.local.rb")
+  :args '("-c" "../../unicorn/dev.rb")
+  :path `(,(my-source-path "image_server/bin"))
+  :cwd (my-source-path "image_server")
+  :ready-message "worker=2 ready")
+
+(prodigy-define-service :name "Vincent single"
+  :command "unicorn"
+  :args '("-c" "../../unicorn/single.rb")
   :path `(,(my-source-path "image_server/bin"))
   :cwd (my-source-path "image_server")
   :ready-message "worker=2 ready")
@@ -25,9 +48,10 @@
 (prodigy-define-service
   :name "Vincent rerun"
   :command "bundle"
-  :args '("exec" "rerun" "--" "unicorn" "-c" "config/unicorn.local.rb")
+  :args '("exec" "rerun" "--" "unicorn" "-c" "../../unicorn/dev.rb")
   :path `(,(my-source-path "image_server/bin"))
   :cwd (my-source-path "image_server")
+  :tags '(nuvango)
   :ready-message "worker=2 ready")
 
 (prodigy-define-service
@@ -35,6 +59,7 @@
   :command "bundle"
   :args '("exec" "rails" "server")
   :cwd (my-source-path "spree_gelaskins")
+  :tags '(nuvango)
   :ready-message "Listening On")
 
 (prodigy-define-service
@@ -50,6 +75,7 @@
   :args '("/opt/graphite")
   :path '("/opt/graphite/bin")
   :cwd "/opt/graphite/bin"
+  :tags '(nuvango)
   :ready-message "Quit the server with")
 
 (prodigy-define-service
@@ -57,6 +83,7 @@
   :command "carbon-cache.py"
   :args '("--debug" "start")
   :path '("/opt/graphite/bin")
+  :tags '(nuvango)
   :ready-message "ServerFactory")
 
 (prodigy-define-service
@@ -64,4 +91,5 @@
   :command "node"
   :args '("stats.js" "localConfig.js")
   :cwd "/opt/statsd"
+  :tags '(nuvango)
   :ready-message "server is up")

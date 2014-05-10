@@ -11,6 +11,12 @@
   (vhl/clear-all)
   (yank))
 
+(defun number-of-lines-in-buffer ()
+  (+ 1 (count-lines (point-min) (point-max))))
+
+(defun at-last-line-p ()
+  (= (number-of-lines-in-buffer) (current-line-number)))
+
 (defun ido-find-file-in-project-root ()
   (interactive)
   (ido-find-file-in-dir (projectile-project-root)))
@@ -240,3 +246,12 @@
           (-filter
            (lambda (buf) (not (s-starts-with? "*" (buffer-name buf))))
            (cdr (buffer-list (current-buffer))))))
+
+(defun scroll-buffer-to-bottom-when-inactive (buffer-name)
+  (let ((buffer (get-buffer buffer-name)))
+    (unless (eq (current-buffer) buffer)
+      (with-current-buffer buffer
+        (scroll-to-bottom)))))
+
+(defun scroll-to-bottom ()
+  (goto-char (point-max)))
