@@ -35,7 +35,7 @@
                  init-crontab
                  init-deft
                  init-dired
-                 init-session
+                 ;; init-session
                  init-pager
                  init-prodigy
                  init-peepopen

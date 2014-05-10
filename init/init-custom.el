@@ -28,5 +28,4 @@
  '(js3-highlight-external-variables nil)
  '(js3-highlight-level 3)
  '(ruby-refactor-add-parens t)
- '(ruby-refactor-let-position (quote closest))
- '(session-use-package t nil (session)))
+ '(ruby-refactor-let-position (quote closest)))
