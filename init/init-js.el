@@ -43,18 +43,19 @@
      ;; unwrap: Replaces the parent statement with the selected region.
      ;; log-this: Adds a console.log statement for what is at point (or region).
      ;; forward-slurp: Moves the next statement into current function, if-statement, for-loop or while-loop.
-     (evil-define-key 'normal js3-mode-map
+     (evil-define-key 'visual js3-mode-map
        (kbd ",rf") 'js3r-extract-function
        (kbd ",rm") 'js3r-extract-method
-       (kbd ",rp") 'js3r-introduce-parameter
-       (kbd ",rl") 'js3r-localize-parameter
+       (kbd ",rv") 'js3r-extract-var
+       (kbd "M-S-J") 'js3r-move-line-down
+       (kbd "M-S-K") 'js3r-move-line-up)
+     (evil-define-key 'normal js3-mode-map
        (kbd ",re") 'js3r-expand-object
        (kbd ",rc") 'js3r-contract-object
        (kbd ",ri") 'js3r-wrap-buffer-in-iife
        (kbd ",rg") 'js3r-inject-global-in-iife
        (kbd ",rv") 'js3r-extract-var
        (kbd ",rt") 'js3r-var-to-this
-       (kbd ",ra") 'js3r-arguments-to-object
        (kbd ",r3") 'js3r-ternary-to-if
        (kbd ",rl") 'js3r-log-this)))
 
