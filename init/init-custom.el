@@ -28,4 +28,5 @@
  '(js3-highlight-external-variables nil)
  '(js3-highlight-level 3)
  '(ruby-refactor-add-parens t)
- '(ruby-refactor-let-position (quote closest)))
+ '(ruby-refactor-let-position (quote closest))
+ '(scss-compile-at-save nil))

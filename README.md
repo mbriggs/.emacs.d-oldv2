@@ -76,11 +76,11 @@ having the things I don't use easily available in a standard location.
 Dependancies
 ------------
 
-osx:
 
-    brew install ctags node checkstyle
+    brew install ctags node checkstyle pmd drip
     sudo npm install -g jshint
 
+set up rbenv
 
 install [emacs pager](https://raw.githubusercontent.com/mbriggs/emacs-pager/master/emacs-pager)
 script somewhere onto your path.

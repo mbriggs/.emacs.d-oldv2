@@ -11,6 +11,7 @@
     (message "Loading eclim...")
     (require 'eclim)
     (require 'eclimd)
+    (require 'java-syntax-checker)
     (global-eclim-mode)
 
     (require 'company-emacs-eclim)
