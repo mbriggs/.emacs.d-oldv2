@@ -55,6 +55,7 @@
        (kbd ",ri") 'js3r-wrap-buffer-in-iife
        (kbd ",rg") 'js3r-inject-global-in-iife
        (kbd ",rv") 'js3r-extract-var
+       (kbd ",rn") 'js3r-inline-var
        (kbd ",rt") 'js3r-var-to-this
        (kbd ",r3") 'js3r-ternary-to-if
        (kbd ",rl") 'js3r-log-this)))

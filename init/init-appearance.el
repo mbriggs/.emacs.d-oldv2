@@ -3,8 +3,8 @@
 
 
 (quelpa '(base16-emacs
-	  :repo "neil477/base16-emacs"
-	  :fetcher github))
+          :repo "neil477/base16-emacs"
+          :fetcher github))
 (quelpa 'dash)
 (require 'dash)
 
@@ -23,6 +23,8 @@
             (when (and
                    (not (eq major-mode 'Custom-mode))
                    (not (eq major-mode 'shell-mode))
+                   (not (eq major-mode 'emacs-pager-mode))
+                   (not (eq major-mode 'term-mode))
                    (not (eq major-mode 'ibuffer-mode))
                    (not (eq major-mode 'rspec-compilation-mode))
                    (not (eq major-mode 'prodigy-mode)))
@@ -53,18 +55,6 @@
      ,@body))
 
 
-(with-theme-colors
- (set-face-attribute 'fringe nil
-                     :background dark3
-                     :foreground blue)
- (set-face-attribute 'region nil
-                     :background dark4
-                     :foreground light3))
-
-
-
-
-
 (unless (require 'rainbow-mode nil t)
   (with-temp-buffer
     (url-insert-file-contents
@@ -91,6 +81,7 @@
                                  magit-log-mode
                                  magit-commit-mode
                                  magit-branch-manager-mode
+                                 term-mode
                                  deft-mode
                                  ruby-mode
                                  haml-mode
@@ -121,13 +112,9 @@
 (require 'highlight-cl)
 (add-hook 'emacs-lisp-mode-hook 'highlight-cl-add-font-lock-keywords)
 
-(quelpa 'golden-ratio)
-(require 'golden-ratio)
-(setq golden-ratio-extra-commands '(other-window evil-window-next))
-
 (quelpa 'column-enforce-mode)
 (require 'column-enforce-mode)
-(defvar *dont-column-enforce* '(shell-mode prodigy-mode))
+(defvar *dont-column-enforce* '(shell-mode prodigy-mode term-mode emacs-pager-mode))
 
 (add-hook 'after-change-major-mode-hook
           '(lambda ()

@@ -87,6 +87,13 @@
   :ready-message "ServerFactory")
 
 (prodigy-define-service
+  :name "My Blog"
+  :command "bundle"
+  :args '("exec" "rake" "preview")
+  :cwd (my-source-path "mbriggs.github.io")
+  :ready-message "Compass is watching for changes. Press Ctrl-C to Stop")
+
+(prodigy-define-service
   :name "statsd"
   :command "node"
   :args '("stats.js" "localConfig.js")
