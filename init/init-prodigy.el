@@ -17,50 +17,38 @@
      (define-key prodigy-mode-map (kbd "SPC") 'prodigy-display-process)
      (setq prodigy-kill-process-buffer-on-stop t)))
 
-(defun is-prodigy-buffer-p (buffer-name)
-  (s-starts-with? "*prodigy-" buffer-name))
-
-
-
-(add-hook 'post-command-hook
-          (lambda ()
-            (let ((prodigy-buffers (-filter 'is-prodigy-buffer-p
-                                            (mapcar (function buffer-name)
-                                                    (buffer-list)))))
-              (-each prodigy-buffers 'scroll-buffer-to-bottom-when-inactive))))
 
 (prodigy-define-tag :name 'nuvango)
 
 (prodigy-define-service :name "Vincent"
   :command "unicorn"
-  :args '("-c" "../../unicorn/dev.rb")
-  :path `(,(my-source-path "image_server/bin"))
-  :cwd (my-source-path "image_server")
+  :args '("-c" "../../unicorn/vincent/dev.rb")
+  :path `(,(my-source-path "vincent/bin"))
+  :cwd (my-source-path "vincent")
   :ready-message "worker=2 ready")
 
 (prodigy-define-service :name "Vincent single"
   :command "unicorn"
-  :args '("-c" "../../unicorn/single.rb")
-  :path `(,(my-source-path "image_server/bin"))
-  :cwd (my-source-path "image_server")
+  :args '("-c" "../../unicorn/vincent/single.rb")
+  :path `(,(my-source-path "vincent/bin"))
+  :cwd (my-source-path "vincent")
   :ready-message "worker=2 ready")
 
 (prodigy-define-service
   :name "Vincent rerun"
   :command "bundle"
-  :args '("exec" "rerun" "--" "unicorn" "-c" "../../unicorn/dev.rb")
-  :path `(,(my-source-path "image_server/bin"))
-  :cwd (my-source-path "image_server")
+  :args '("exec" "rerun" "--" "unicorn" "-c" "../../unicorn/vincent/dev.rb")
+  :path `(,(my-source-path "vincent/bin"))
+  :cwd (my-source-path "vincent")
   :tags '(nuvango)
   :ready-message "worker=2 ready")
 
 (prodigy-define-service
   :name "Nuvango"
   :command "bundle"
-  :args '("exec" "rails" "server")
-  :cwd (my-source-path "spree_gelaskins")
-  :tags '(nuvango)
-  :ready-message "Listening On")
+  :args '("exec" "unicorn" "-c" "../../unicorn/nuvango/dev.rb")
+  :cwd (my-source-path "nuvango")
+  :tags '(nuvango))
 
 (prodigy-define-service
   :name "Wrap Browser"
@@ -87,11 +75,13 @@
   :ready-message "ServerFactory")
 
 (prodigy-define-service
-  :name "My Blog"
+  :name "mattbriggs.net"
   :command "bundle"
   :args '("exec" "rake" "preview")
-  :cwd (my-source-path "mbriggs.github.io")
-  :ready-message "Compass is watching for changes. Press Ctrl-C to Stop")
+  :cwd (my-source-path "mattbriggs.net")
+  :ready-message "Compass is watching for changes. Press Ctrl-C to Stop"
+  :env '(("LANG" "en_US.UTF-8")
+         ("LC_ALL" "en_US.UTF-8")))
 
 (prodigy-define-service
   :name "statsd"

@@ -19,7 +19,8 @@
     (if is-term
         (if is-running
             (if (string= "*ansi-term*" (buffer-name))
-                (call-interactively 'rename-buffer)
+                (let ((name (read-input "New name: ")))
+                  (rename-buffer (concat "*" name "-term*")))
               (if anon-term
                   (switch-to-buffer "*ansi-term*")
                 (ansi-term term-cmd)))

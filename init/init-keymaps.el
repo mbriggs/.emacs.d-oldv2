@@ -121,4 +121,5 @@
         ("rlog"                     . rails-log-show-development)
         ("occur"                    . projectile-multi-occur)
         ("rubo"                     . rubocop-autocorrect-current-file)
+        ("rlog"                     . rails-log-show-development)
         ("[em]acs"                  . dired-to-emacs-dir)))

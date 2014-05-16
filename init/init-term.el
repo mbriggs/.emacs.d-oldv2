@@ -45,7 +45,10 @@
 (eval-after-load "term"
   '(progn
      (define-key term-raw-map (kbd "M-x") 'smex)
-     (define-key term-raw-map (kbd "M-j") 'evil-window-next)))
+     (define-key term-raw-map (kbd "M-j") 'evil-window-next)
+     (define-key term-raw-map (kbd "C-p") 'switch-to-local-project)
+     (define-key term-raw-map (kbd "C-S-P") 'prodigy)
+     ))
 
 (add-hook 'term-mode-hook (lambda()
                 (yas-minor-mode -1)))
