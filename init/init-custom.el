@@ -14,7 +14,7 @@
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :foreground "#f9f7f3"))))
  '(company-tooltip-selection ((t (:inherit company-tooltip :background "#6d9cbe"))))
  '(compilation-info ((t (:foreground "#ffc66d"))))
- '(magit-section-title ((t (:background "#5a647e" :foreground "#f9f7f3" :weight semi-bold))))
+ '(magit-section-title ((t (:background "#5a647e" :foreground "#f9f7f3" :weight normal))))
  '(show-paren-match ((t (:background "#5a647e" :foreground "#d4cfc9"))))
  '(sp-show-pair-enclosing ((t (:background "#5a647e" :foreground "#d4cfc9"))))
  '(sp-show-pair-match-face ((t (:background "#5a647e" :foreground "#d4cfc9"))))

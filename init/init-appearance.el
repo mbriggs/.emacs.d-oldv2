@@ -1,7 +1,6 @@
 (provide 'init-appearance)
 
 
-
 (quelpa '(base16-emacs
           :repo "neil477/base16-emacs"
           :fetcher github))
