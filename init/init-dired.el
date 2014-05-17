@@ -12,6 +12,7 @@
 
 (define-key dired-mode-map (kbd "b") nil)
 (define-key dired-mode-map (kbd "e") nil)
+(define-key dired-mode-map (kbd "-") nil)
 (define-key dired-mode-map (kbd "E") nil)
 
 (with-theme-colors
