@@ -40,6 +40,7 @@
                  init-prodigy
                  init-peepopen
                  init-java
+                 init-swift
 
                  init-keymaps
                  init-settings))

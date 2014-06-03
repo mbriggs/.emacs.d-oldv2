@@ -45,10 +45,26 @@
 
 (prodigy-define-service
   :name "Nuvango"
-  :command "bundle"
-  :args '("exec" "unicorn" "-c" "../../unicorn/nuvango/dev.rb")
+  :command "rerun"
+  :args '("--dir" "config" "--" "bundle" "exec" "unicorn" "-c" "../../unicorn/nuvango/dev.rb")
   :cwd (my-source-path "nuvango")
-  :tags '(nuvango))
+  :tags '(nuvango)
+  :ready-message "worker=2 ready")
+
+(prodigy-define-service
+  :name "Nuvango Zeus"
+  :command "zeus"
+  :args '("start")
+  :cwd (my-source-path "nuvango")
+  :tags '(nuvango)
+  :ready-message "worker=2 ready")
+
+(prodigy-define-service
+  :name "Nuvango QA"
+  :command "bundle"
+  :args '("exec" "unicorn" "--env" "qa" "-c" "../../unicorn/nuvango/qa.rb")
+  :cwd (my-source-path "nuvango")
+  )
 
 (prodigy-define-service
   :name "Wrap Browser"

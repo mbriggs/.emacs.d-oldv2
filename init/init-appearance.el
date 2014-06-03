@@ -80,6 +80,8 @@
                                  magit-log-mode
                                  magit-commit-mode
                                  magit-branch-manager-mode
+                                 prodigy-mode
+                                 prodigy-view-mode
                                  term-mode
                                  deft-mode
                                  ruby-mode
