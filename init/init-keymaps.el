@@ -115,6 +115,7 @@
         ("sh"                       . visit-ansi-term)
         ("mx"                       . smex)
         ("mysql"                    . sql-mysql)
+        ("[gh]github"               . open-github-from-here)
         ("[de]debug-elisp"          . edebug-defun)
         ("[pr]oject"                . switch-to-local-project)
         ("p"                        . prodigy)

@@ -12,7 +12,7 @@
                  init-evil
                  init-completion
                  init-projectile
-                 init-magit
+                 init-git
                  init-expand-region
                  init-web
                  init-parens
@@ -46,6 +46,9 @@
                  init-keymaps
                  init-settings))
 
+(let ((secret-path (expand-file-name "~/Dropbox/secrets.el")))
+  (when (file-exists-p secret-path)
+    (load-file secret-path)))
 
 (require 'server)
 (unless (server-running-p)
