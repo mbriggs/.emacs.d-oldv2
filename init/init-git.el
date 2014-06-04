@@ -3,8 +3,7 @@
 (quelpa 'magit)
 (quelpa 'yagist)
 (quelpa 'diff-hl)
-(quelpa '(open-github-from-here :fetcher github :repo "mbriggs/emacs-open-github-from-here")
-        :upgrade t)
+(quelpa '(open-github-from-here :fetcher github :repo "mbriggs/emacs-open-github-from-here"))
 (setq magit-emacsclient-executable "/usr/local/bin/emacsclient")
 
 (global-set-key (kbd "<f1>") 'magit-status)
