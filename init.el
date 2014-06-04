@@ -40,6 +40,7 @@
                  init-prodigy
                  init-peepopen
                  init-java
+                 init-mongo
                  init-swift
 
                  init-keymaps
