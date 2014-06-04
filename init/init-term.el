@@ -1,5 +1,7 @@
 (provide 'init-term)
 
+(quelpa 'multi-term)
+
 (with-theme-colors
  (defface term-color-black
    `((t (:foreground ,dark1 :background ,dark3)))
@@ -44,11 +46,13 @@
 
 (eval-after-load "term"
   '(progn
+     (require 'multi-term)
+
      (define-key term-raw-map (kbd "M-x") 'smex)
      (define-key term-raw-map (kbd "M-j") 'evil-window-next)
      (define-key term-raw-map (kbd "C-p") 'switch-to-local-project)
      (define-key term-raw-map (kbd "C-S-P") 'prodigy)
-     ))
+     (evil-define-key 'insert term-raw-map (kbd "M-v") 'term-paste)))
 
 (add-hook 'term-mode-hook (lambda()
                 (yas-minor-mode -1)))
