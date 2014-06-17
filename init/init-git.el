@@ -9,7 +9,6 @@
 (add-hook 'git-commit-mode-hook 'insert-ticket-number-from-branch-name)
 
 (defun insert-ticket-number-from-branch-name ()
-  (evil-insert-state)
   (let* ((current-branch (car (vc-git-branches)))
          (ticket-number (replace-regexp-in-string ".+\\(/.*\\)$" ""
                                                   current-branch nil nil 1)))
