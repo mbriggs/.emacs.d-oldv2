@@ -42,6 +42,7 @@
                  init-java
                  init-mongo
                  init-swift
+                 init-ag
 
                  init-keymaps
                  init-settings))

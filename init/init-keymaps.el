@@ -107,6 +107,8 @@
         ("[er]eval-region"          . eval-region)
         ("[eb]eval-buffer"          . eval-buffer)
         ("ack"                      . ack)
+        ("ag"                       . ag-project)
+        ("agl"                      . ag)
         ("[al]ack-location"         . ack-location)
         ("gist-list"            . yagist-list)
         ("gist"                     . yagist-region-or-buffer)
