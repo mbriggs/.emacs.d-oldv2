@@ -37,7 +37,3 @@
 (setq open-github-from-here:command (expand-file-name "~/.emacs.d/make-github-url-from-file"))
 (require 'evil)
 (push 'git-commit-mode evil-emacs-state-modes)
-
-;; (add-hook 'git-commit-mode-hook
-;;           '(lambda ()
-;;              (goto-char (point-min))))
