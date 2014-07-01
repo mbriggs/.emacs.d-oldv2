@@ -18,4 +18,4 @@
 
 
 (define-key evil-insert-state-map (kbd "M-y") 'aya-expand)
-(define-key evil-insert-state-map (kbd "M-Y") 'aya-create)
+(define-key evil-visual-state-map (kbd "M-Y") 'aya-create)
