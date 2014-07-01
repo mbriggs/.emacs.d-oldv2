@@ -25,8 +25,8 @@
 (global-set-key (kbd "M-p") 'previous-error)
 (global-set-key (kbd "M-j") 'evil-window-next)
 (global-set-key (kbd "C-SPC") 'comment-or-uncomment-region-or-line)
-;; (global-set-key (kbd "M-t") 'projectile-find-file)
-(global-set-key (kbd "M-t") 'peepopen-goto-file)
+(global-set-key (kbd "M-t") 'projectile-find-file)
+;; (global-set-key (kbd "M-t") 'peepopen-goto-file)
 (global-set-key (kbd "C-p") 'switch-to-local-project)
 (global-set-key (kbd "C-S-P") 'prodigy)
 

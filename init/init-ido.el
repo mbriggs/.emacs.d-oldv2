@@ -3,12 +3,13 @@
 (quelpa 'ido-vertical-mode)
 (quelpa 'ido-ubiquitous)
 (quelpa 'smex)
-;; (quelpa 'ido-hacks)
+(quelpa 'ido-hacks)
 ;; (quelpa '(flx :repo "mbriggs/flx" :fetcher github))
-(quelpa '(flx :repo "lewang/flx" :fetcher github :branch "fix-ido-not-narrowing"))
+;; (quelpa '(flx :repo "lewang/flx" :fetcher github :branch "fix-ido-not-narrowing"))
+(quelpa 'flx-ido)
 
 (require 'ido)
-;; (require 'ido-hacks)
+(require 'ido-hacks)
 
 
 ;;; flx
