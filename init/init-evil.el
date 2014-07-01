@@ -3,7 +3,6 @@
 (quelpa 'evil)
 (quelpa 'surround)
 (quelpa 'ace-jump-mode)
-(quelpa 'ace-jump-buffer)
 (quelpa 'evil-indent-textobject)
 (global-surround-mode 1)
 (evil-mode 1)
