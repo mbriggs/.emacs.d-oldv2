@@ -41,7 +41,7 @@
                  init-peepopen
                  init-java
                  init-mongo
-                 init-swift
+                 init-shell
                  init-ag
 
                  init-keymaps

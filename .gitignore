@@ -13,3 +13,5 @@ recentf
 /projectile.cache
 /tramp
 flycheck_*
+/elpa2/
+/elisp/projectile-alternate-file.el

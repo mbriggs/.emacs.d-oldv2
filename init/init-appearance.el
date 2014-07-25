@@ -26,6 +26,7 @@
                    (not (eq major-mode 'shell-mode))
                    (not (eq major-mode 'emacs-pager-mode))
                    (not (eq major-mode 'term-mode))
+                   (not (eq major-mode 'eshell-mode))
                    (not (eq major-mode 'ibuffer-mode))
                    (not (eq major-mode 'rspec-compilation-mode))
                    (not (eq major-mode 'prodigy-mode)))
@@ -85,6 +86,7 @@
                                  prodigy-mode
                                  prodigy-view-mode
                                  term-mode
+                                 eshell-mode
                                  deft-mode
                                  ruby-mode
                                  haml-mode
@@ -117,7 +119,7 @@
 
 (quelpa 'column-enforce-mode)
 (require 'column-enforce-mode)
-(defvar *dont-column-enforce* '(shell-mode prodigy-mode term-mode emacs-pager-mode))
+(defvar *dont-column-enforce* '(shell-mode prodigy-mode term-mode eshell-mode emacs-pager-mode))
 
 (add-hook 'after-change-major-mode-hook
           '(lambda ()

@@ -19,6 +19,7 @@
 
 
 (prodigy-define-tag :name 'nuvango)
+(prodigy-define-tag :name 'clojure)
 
 (prodigy-define-service :name "Vincent"
   :command "unicorn"
@@ -45,8 +46,8 @@
 
 (prodigy-define-service
   :name "Nuvango"
-  :command "rerun"
-  :args '("--dir" "config" "--" "bundle" "exec" "unicorn" "-c" "../../unicorn/nuvango/dev.rb")
+  :command "bundle"
+  :args '("exec" "unicorn" "-c" "../../unicorn/nuvango/dev.rb")
   :cwd (my-source-path "nuvango")
   :tags '(nuvango)
   :ready-message "worker=2 ready")
@@ -98,6 +99,13 @@
   :ready-message "Compass is watching for changes. Press Ctrl-C to Stop"
   :env '(("LANG" "en_US.UTF-8")
          ("LC_ALL" "en_US.UTF-8")))
+
+(prodigy-define-service
+  :name "Schmetterling"
+  :command "lein"
+  :args '("run")
+  :cwd (my-source-path "schmetterling")
+  :ready-message "Compass is watching for changes. Press Ctrl-C to Stop")
 
 (prodigy-define-service
   :name "statsd"

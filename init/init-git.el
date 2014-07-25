@@ -5,6 +5,7 @@
 (quelpa 'diff-hl)
 (quelpa 'gh)
 (quelpa 'helm)
+(quelpa 'git-timemachine)
 (quelpa '(open-github-from-here :fetcher github :repo "mbriggs/emacs-open-github-from-here"))
 (quelpa '(hub :fetcher url :url "https://gist.githubusercontent.com/travisjeffery/632bf58f06c9a882733e/raw/f3a273477031b43585ef244d2021c49cfd887a65/hub.el"))
 
@@ -25,6 +26,7 @@
          (ticket-number (replace-regexp-in-string ".+\\(/.*\\)$" ""
                                                   current-branch nil nil 1)))
     (when (string-match "^.+/" current-branch)
+      (newline)
       (newline)
       (insert (concat "Ticket: " ticket-number))
       (goto-char (point-min)))))
