@@ -1,8 +1,8 @@
 (provide 'init-settings)
 
 (setq ns-use-srgb-colorspace t)
-(setq create-lockfiles nil)
 (setq ring-bell-function 'ignore)
+(setq create-lockfiles nil)
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
 (setq delete-old-versions t
