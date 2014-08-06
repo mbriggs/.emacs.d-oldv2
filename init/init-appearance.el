@@ -56,6 +56,13 @@
          (brown "#bc9458"))
      ,@body))
 
+(with-theme-colors
+ (set-face-attribute 'fringe nil
+                     :background dark3
+                     :foreground blue)
+ (set-face-attribute 'region nil
+                     :background dark4
+                     :foreground light3))
 
 (unless (require 'rainbow-mode nil t)
   (with-temp-buffer

@@ -36,13 +36,6 @@
             term-color-blue term-color-magenta term-color-cyan term-color-white])
 
 
-(with-theme-colors
- (set-face-attribute 'fringe nil
-                     :background dark3
-                     :foreground blue)
- (set-face-attribute 'region nil
-                     :background dark4
-                     :foreground light3))
 
 (eval-after-load "term"
   '(progn

@@ -7,15 +7,7 @@
 (quelpa 'helm)
 (quelpa 'git-timemachine)
 (quelpa '(open-github-from-here :fetcher github :repo "mbriggs/emacs-open-github-from-here"))
-(quelpa '(hub :fetcher url :url "https://gist.githubusercontent.com/travisjeffery/632bf58f06c9a882733e/raw/f3a273477031b43585ef244d2021c49cfd887a65/hub.el"))
-
-(autoload 'hub-list-pull-requests "hub" nil t)
-(autoload 'hub-open-pull-request "hub" nil t)
-(autoload 'hub-fork "hub" nil t)
-(autoload 'hub-create "hub" nil t)
-(autoload 'hub-browse "hub" nil t)
-(autoload 'hub-compare "hub" nil t)
-(autoload 'hub-checkout "hub" nil t)
+(quelpa '(hub :fetcher github :repo "mbriggs/hub.el" :branch "magic-comments") :upgrade t)
 
 (setq magit-emacsclient-executable "/usr/local/bin/emacsclient")
 
