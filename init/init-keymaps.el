@@ -10,6 +10,7 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "M-j") 'other-window)
 (global-set-key (kbd "M-s") 'save-buffer)
+(global-set-key (kbd "M-l") 'goto-line-with-feedback)
 (global-set-key (kbd "M-r") 'rotate-windows)
 (global-set-key (kbd "M-R") 'toggle-window-split)
 (global-set-key (kbd "M-f") 'split-window-right-and-move-there)

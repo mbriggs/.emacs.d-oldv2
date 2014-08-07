@@ -13,9 +13,10 @@
 (if (not (eq system-type 'darwin))
     (menu-bar-mode -1))
 
+
 (if (featurep 'ns)
     (set-frame-font "Menlo-15" t)
- (set-frame-font "Menlo-11" t))
+  (set-frame-font "Menlo-11" t))
 
 (line-number-at-pos)
 
@@ -77,6 +78,15 @@
                 org-mode-hook
                 text-mode-hook))
   (add-hook hook 'rainbow-mode))
+(setq linum-format (lambda (line)
+                     (propertize
+                      (format (concat " %"
+                                      (number-to-string
+                                       (length (number-to-string
+                                                (line-number-at-pos (point-max)))))
+                                      "d ")
+                              line)
+                      'face 'linum)))
 
 (with-theme-colors
  (defface  my-parens       `((((class color)) (:foreground ,dark4))) "custom parens"  :group 'faces)
