@@ -1,16 +1,22 @@
 (provide 'init-js)
 
-(quelpa 'js3-mode)
+(quelpa 'js2-mode)
 (quelpa 'coffee-mode)
-(quelpa '(js3-refactor :fetcher github :repo "katyo/js3-refactor"))
+(quelpa 'js2-refactor)
+(quelpa '(js2-jshint :fetcher github :repo "michaeljb/js2-jshint"))
 
-(autoload 'js3-mode "js3" nil t)
-
-(add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
-(add-to-list 'auto-mode-alist '("\\.js.erb$" . js3-mode))
+(add-to-list 'auto-mode-alist '("\\.js.erb$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json.erb$" . javscript-mode))
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("\\.jshintrc$" . javascript-mode))
+
+(autoload 'js2-jshint-setup "js2-jshint")
+
+(add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
+(add-hook 'js2-init-hook 'js2-jshint-setup)
+
 
 
 (setq js-indent-level 2)
@@ -18,11 +24,11 @@
   '(setq coffee-js-mode preferred-javascript-mode
          coffee-tab-width preferred-javascript-indent-level))
 
-(eval-after-load "js3"
+(eval-after-load "js2"
   '(progn
-     (require 'js3-refactor)
-     (evil-define-key 'normal js3-mode-map ",g" 'js3-add-to-globals)
-     (define-key js3-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
+     (require 'js2-refactor)
+     (evil-define-key 'normal js2-mode-map ",g" 'js2-add-to-globals)
+     (define-key js2-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
 
      ;; extract-function: Extracts the marked expressions out into a new named function.
      ;; extract-method: Extracts the marked expressions out into a new named method in an object literal.
@@ -43,31 +49,31 @@
      ;; unwrap: Replaces the parent statement with the selected region.
      ;; log-this: Adds a console.log statement for what is at point (or region).
      ;; forward-slurp: Moves the next statement into current function, if-statement, for-loop or while-loop.
-     (evil-define-key 'visual js3-mode-map
-       (kbd ",rf") 'js3r-extract-function
-       (kbd ",rm") 'js3r-extract-method
-       (kbd ",rv") 'js3r-extract-var
-       (kbd "M-S-J") 'js3r-move-line-down
-       (kbd "M-S-K") 'js3r-move-line-up)
-     (evil-define-key 'normal js3-mode-map
-       (kbd ",re") 'js3r-expand-object
-       (kbd ",rc") 'js3r-contract-object
-       (kbd ",ri") 'js3r-wrap-buffer-in-iife
-       (kbd ",rg") 'js3r-inject-global-in-iife
-       (kbd ",rv") 'js3r-extract-var
-       (kbd ",rn") 'js3r-inline-var
-       (kbd ",rt") 'js3r-var-to-this
-       (kbd ",r3") 'js3r-ternary-to-if
-       (kbd ",rl") 'js3r-log-this)))
+     (evil-define-key 'visual js2-mode-map
+       (kbd ",rf") 'js2r-extract-function
+       (kbd ",rm") 'js2r-extract-method
+       (kbd ",rv") 'js2r-extract-var
+       (kbd "M-S-J") 'js2r-move-line-down
+       (kbd "M-S-K") 'js2r-move-line-up)
+     (evil-define-key 'normal js2-mode-map
+       (kbd ",re") 'js2r-expand-object
+       (kbd ",rc") 'js2r-contract-object
+       (kbd ",ri") 'js2r-wrap-buffer-in-iife
+       (kbd ",rg") 'js2r-inject-global-in-iife
+       (kbd ",rv") 'js2r-extract-var
+       (kbd ",rn") 'js2r-inline-var
+       (kbd ",rt") 'js2r-var-to-this
+       (kbd ",r3") 'js2r-ternary-to-if
+       (kbd ",rl") 'js2r-log-this)))
 
 ;; (font-lock-add-keywords
-;;  'js3-mode `(("function *([^)]*) *{ *\\(return\\) "
+;;  'js2-mode `(("function *([^)]*) *{ *\\(return\\) "
 ;;               (0 (progn (compose-region (match-beginning 1)
 ;;                                         (match-end 1) "\u2190")
 ;;                         nil)))))
 
 ;; (font-lock-add-keywords
-;;  'js3-mode `(("\\(function\\)("
+;;  'js2-mode `(("\\(function\\)("
 ;;               (0 (progn (compose-region (match-beginning 1)
 ;;                                         (match-end 1) "λ")
 ;;                         nil)))))
