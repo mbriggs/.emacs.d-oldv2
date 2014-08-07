@@ -4,10 +4,12 @@
 (quelpa 'evil-surround)
 (quelpa 'ace-jump-mode)
 (quelpa 'evil-indent-textobject)
+(quelpa 'evil-jumper)
 (quelpa '(evil-exchange :fetcher github :repo "Dewdrops/evil-exchange"))
 (global-evil-surround-mode 1)
 (evil-mode 1)
 
+(require 'evil-jumper)
 (require 'evil-exchange)
 (evil-exchange-install)
 
