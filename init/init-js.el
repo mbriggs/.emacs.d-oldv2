@@ -3,16 +3,21 @@
 (quelpa 'js2-mode)
 (quelpa 'coffee-mode)
 (quelpa 'js2-refactor)
-(quelpa '(js2-jshint-extras :fetcher github :repo "papaeye/js2-jshint-extras"))
+(quelpa '(js2-jshint :fetcher github :repo "michaeljb/js2-jshint"))
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
 (add-to-list 'auto-mode-alist '("\\.js.erb$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json.erb$" . javscript-mode))
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("\\.jshintrc$" . javascript-mode))
 
-(add-hook 'js2-mode-hook 'js2-jshint-extras-setup)
+(autoload 'js2-jshint-setup "js2-jshint")
+
 (add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
+(add-hook 'js2-init-hook 'js2-jshint-setup)
+
+
 
 (setq js-indent-level 2)
 (eval-after-load "coffee-mode"
