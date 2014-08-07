@@ -358,7 +358,6 @@ region-end is used."
 (defun scroll-to-bottom ()
   (goto-char (point-max)))
 
-
 (defun ido-imenu ()
   "Update the imenu index and then use ido to select a symbol to navigate to.
 Symbols matching the text at point are put first in the completion list."
