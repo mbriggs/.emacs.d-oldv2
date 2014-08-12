@@ -79,7 +79,6 @@
   (kbd "A-<backspace>") 'backward-kill-word
   (kbd "M-J") 'evil-join
   (kbd "M-v") 'yank
-  (kbd "RET") 'new-line-dwim
   (kbd "M-S-<return>") 'evil-open-above
   (kbd "M-<return>") 'evil-open-below
   (kbd "M-<left>") 'evil-first-non-blank
@@ -116,7 +115,7 @@
         ("gist"                     . yagist-region-or-buffer)
         ("gistp"                    . yagist-region-or-buffer-private)
         ("erc"                      . start-erc)
-        ("sh"                       . eshell)
+        ("sh"                       . ansi-term)
         ("mx"                       . smex)
         ("mysql"                    . sql-mysql)
         ("[gh]github"               . open-github-from-here)

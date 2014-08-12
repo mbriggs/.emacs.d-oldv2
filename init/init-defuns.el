@@ -14,18 +14,32 @@
   (split-window-below)
   (windmove-down))
 
+
+(defun fancy-new-line-p ()
+  (let ((blacklist '(term-mode)))
+    (not (-contains? blacklist major-mode))))
+
 (defun new-line-dwim ()
   (interactive)
-  (let ((break-open-pair (or (and (looking-back "{" 1) (looking-at "}"))
-                             (and (looking-back ">" 1) (looking-at "<"))
-                             (and (looking-back "(" 1) (looking-at ")"))
-                             (and (looking-back "\\[" 1) (looking-at "\\]")))))
-    (newline)
-    (when break-open-pair
-      (save-excursion
+
+  (if (fancy-new-line-p)
+      (let ((break-open-pair (or (and (looking-back "{" 1) (looking-at "}"))
+                                 (and (looking-back ">" 1) (looking-at "<"))
+                                 (and (looking-back "(" 1) (looking-at ")"))
+                                 (and (looking-back "\\[" 1) (looking-at "\\]")))))
         (newline)
-        (indent-for-tab-command)))
-    (indent-for-tab-command)))
+        (when (break-open-pair)
+          (save-excursion
+            (newline)
+            (indent-for-tab-command)))
+        (indent-for-tab-command))
+    (evil-ret)))
+
+(mapc #'(lambda (mode-map)
+          (evil-define-key 'insert mode-map (kbd "RET") 'new-line-dwim))
+
+      '(enh-ruby-mode-map js2-mode-map web-mode-map))
+
 
 (defun rotate-windows ()
   "Rotate your windows"

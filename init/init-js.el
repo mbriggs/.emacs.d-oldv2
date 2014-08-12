@@ -24,11 +24,12 @@
   '(setq coffee-js-mode preferred-javascript-mode
          coffee-tab-width preferred-javascript-indent-level))
 
-(eval-after-load "js2"
+(eval-after-load "js2-mode"
   '(progn
      (require 'js2-refactor)
      (evil-define-key 'normal js2-mode-map ",g" 'js2-add-to-globals)
      (define-key js2-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
+     (define-key js2-mode-map (kbd "M-j") nil)
 
      ;; extract-function: Extracts the marked expressions out into a new named function.
      ;; extract-method: Extracts the marked expressions out into a new named method in an object literal.

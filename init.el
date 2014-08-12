@@ -5,11 +5,11 @@
 
 
 (mapc 'require '(init-bootstrap
+                 init-evil
                  init-defuns
                  init-appearance
 
                  init-ido
-                 init-evil
                  init-completion
                  init-projectile
                  init-git

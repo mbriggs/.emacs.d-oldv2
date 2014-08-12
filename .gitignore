@@ -16,3 +16,4 @@ flycheck_*
 /elpa2/
 /elisp/projectile-alternate-file.el
 /var/
+/jumplist
