@@ -4,6 +4,7 @@
 (quelpa 'coffee-mode)
 (quelpa 'js2-refactor)
 (quelpa '(js2-jshint :fetcher github :repo "michaeljb/js2-jshint"))
+(quelpa '(gulpjs :fetcher github :repo "stevenremot/emacs-gulpjs"))
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
@@ -13,10 +14,10 @@
 (add-to-list 'auto-mode-alist '("\\.jshintrc$" . javascript-mode))
 
 (autoload 'js2-jshint-setup "js2-jshint")
+(autoload 'gulpjs-start-task "gulpjs" "Start a gulp task." t)
 
 (add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
 (add-hook 'js2-init-hook 'js2-jshint-setup)
-
 
 
 (setq js-indent-level 2)

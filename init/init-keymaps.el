@@ -99,6 +99,7 @@
         ("deft"                     . deft)
         ("reset-directory"          . reset-current-dir)
         ("log"                      . magit-file-log)
+        ("gulp"                     . gulpjs-start-task)
         ("history"                  . git-timemachine)
         ("bundle"                   . bundle-install)
         ("[chan]nel"                . ido-erc-buffer)

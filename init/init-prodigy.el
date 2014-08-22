@@ -64,8 +64,11 @@
   :name "Nuvango QA"
   :command "bundle"
   :args '("exec" "unicorn" "--env" "qa" "-c" "../../unicorn/nuvango/qa.rb")
-  :cwd (my-source-path "nuvango")
-  )
+  :cwd (my-source-path "nuvango"))
+
+(prodigy-define-service
+  :name "Rabbit"
+  :command "rabbitmq-server")
 
 (prodigy-define-service
   :name "Wrap Browser"
