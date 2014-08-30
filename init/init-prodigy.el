@@ -21,6 +21,10 @@
 (prodigy-define-tag :name 'nuvango)
 (prodigy-define-tag :name 'clojure)
 
+(prodigy-define-service :name "Rabbit"
+  :command "rabbit-server"
+  :ready-message "completed")
+
 (prodigy-define-service :name "Vincent"
   :command "unicorn"
   :args '("-c" "../../unicorn/vincent/dev.rb")

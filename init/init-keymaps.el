@@ -35,6 +35,7 @@
 ;; (global-set-key (kbd "M-t") 'peepopen-goto-file)
 (global-set-key (kbd "C-p") 'switch-to-local-project)
 (global-set-key (kbd "C-S-P") 'prodigy)
+(global-set-key (kbd "M-`") 'other-frame)
 
 ;;; normal
 (define-key evil-normal-state-map " m" 'evil-jump-item)

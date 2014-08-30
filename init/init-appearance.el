@@ -14,9 +14,11 @@
     (menu-bar-mode -1))
 
 
-(if (featurep 'ns)
-    (set-frame-font "Menlo-15" t)
-  (set-frame-font "Menlo-11" t))
+(let ((font (if (featurep 'ns) "Menlo-15" "Menlo-11")))
+  (set-frame-font font)
+  (add-to-list 'default-frame-alist
+               `(font . ,font)))
+
 
 (line-number-at-pos)
 

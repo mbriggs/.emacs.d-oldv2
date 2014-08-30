@@ -30,4 +30,6 @@
 
 (defun refresh-cider-repl ()
   (interactive)
-  (cider-interactive-eval "(clojure.tools.namespace.repl/refresh)"))
+
+  ;(cider-interactive-eval "(clojure.tools.namespace.repl/refresh)")
+  (cider-refresh))
