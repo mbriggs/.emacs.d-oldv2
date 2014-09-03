@@ -23,6 +23,9 @@
 (define-key sp-keymap (kbd "M-k") 'sp-kill-sexp)
 (define-key sp-keymap (kbd "M-K") 'sp-backward-kill-sexp)
 (evil-define-key 'normal sp-keymap
+  (kbd "(") 'wrap-round
+  (kbd "\"") 'wrap-quote
+  (kbd "[") 'wrap-square
   (kbd ",cs") 'sp-splice-sexp
   (kbd ",cp") 'sp-split-sexp
   (kbd ",cj") 'sp-join-sexp
@@ -30,6 +33,18 @@
   (kbd "M-h") 'sp-forward-barf-sexp
   (kbd "M-L") 'sp-backward-slurp-sexp
   (kbd "M-H") 'sp-backward-barf-sexp)
+
+(defun wrap-round ()
+  (interactive)
+  (sp-wrap-with-pair "("))
+
+(defun wrap-quote ()
+  (interactive)
+  (sp-wrap-with-pair "\""))
+
+(defun wrap-square ()
+  (interactive)
+  (sp-wrap-with-pair "["))
 
 
 (defun reset-cider-repl ()
