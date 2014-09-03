@@ -18,10 +18,10 @@
 
 (define-key sp-keymap (kbd "M-k") 'sp-kill-sexp)
 (define-key sp-keymap (kbd "M-K") 'sp-backward-kill-sexp)
-(define-key (kbd "M-H") 'sp-backward-barf-sexp)
-(define-key (kbd "M-h") 'sp-backward-slurp-sexp)
-(define-key (kbd "M-L") 'sp-forward-barf-sexp)
-(define-key (kbd "M-l") 'sp-forward-slurp-sexp)
+(define-key sp-keymap (kbd "M-H") 'sp-backward-barf-sexp)
+(define-key sp-keymap (kbd "M-h") 'sp-backward-slurp-sexp)
+(define-key sp-keymap (kbd "M-L") 'sp-forward-barf-sexp)
+(define-key sp-keymap (kbd "M-l") 'sp-forward-slurp-sexp)
 (evil-define-key 'normal sp-keymap
   (kbd "(") 'wrap-round
   (kbd "\"") 'wrap-quote
