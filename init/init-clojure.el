@@ -14,11 +14,23 @@
 (add-hook 'clojure-mode-hook 'midje-mode)
 
 (require 'cider)
+(add-hook 'clojure-mode-hook 'turn-on-smartparens-strict-mode)
 (setq cider-show-error-buffer nil)
 (define-key cider-mode-map (kbd "C-e") 'cider-show-error-buffer)
 (define-key cider-mode-map (kbd "M-1") 'reset-cider-repl)
 (define-key cider-mode-map (kbd "M-2") 'run-cider-tests)
 (define-key cider-mode-map (kbd "M-3") 'refresh-cider-repl)
+(define-key sp-keymap (kbd "M-k") 'sp-kill-sexp)
+(define-key sp-keymap (kbd "M-K") 'sp-backward-kill-sexp)
+(evil-define-key 'normal sp-keymap
+  (kbd ",cs") 'sp-splice-sexp
+  (kbd ",cp") 'sp-split-sexp
+  (kbd ",cj") 'sp-join-sexp
+  (kbd "M-l") 'sp-forward-slurp-sexp
+  (kbd "M-h") 'sp-forward-barf-sexp
+  (kbd "M-L") 'sp-backward-slurp-sexp
+  (kbd "M-H") 'sp-backward-barf-sexp)
+
 
 (defun reset-cider-repl ()
   (interactive)

@@ -67,19 +67,6 @@
                      :background dark4
                      :foreground light3))
 
-(unless (require 'rainbow-mode nil t)
-  (with-temp-buffer
-    (url-insert-file-contents
-     "http://git.savannah.gnu.org/cgit/emacs/elpa.git/plain/packages/rainbow-mode/rainbow-mode.el")
-    (package-install-from-buffer)))
-
-(dolist (hook '(css-mode-hook
-                html-mode-hook
-                js-mode-hook
-                emacs-lisp-mode-hook
-                org-mode-hook
-                text-mode-hook))
-  (add-hook hook 'rainbow-mode))
 (setq linum-format (lambda (line)
                      (propertize
                       (format (concat " %"
