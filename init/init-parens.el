@@ -22,11 +22,15 @@
 (define-key sp-keymap (kbd "M-h") 'sp-backward-slurp-sexp)
 (define-key sp-keymap (kbd "M-L") 'sp-forward-barf-sexp)
 (define-key sp-keymap (kbd "M-l") 'sp-forward-slurp-sexp)
+(define-key sp-keymap (kbd "C-<right>") 'sp-beginning-of-next-sexp)
+(define-key sp-keymap (kbd "C-<left>") 'sp-end-of-previous-sexp)
+(define-key sp-keymap (kbd "S-<left>") 'sp-beginning-of-sexp)
+(define-key sp-keymap (kbd "S-<right>") 'sp-end-of-sexp)
 (evil-define-key 'normal sp-keymap
   (kbd "(") 'wrap-round
   (kbd "\"") 'wrap-quote
   (kbd "[") 'wrap-square
-  (kbd "P") 'sp-splice-sexp
+  (kbd "K") 'sp-splice-sexp
   (kbd ",cp") 'sp-split-sexp
   (kbd ",cj") 'sp-join-sexp)
 

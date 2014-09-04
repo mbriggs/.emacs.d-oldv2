@@ -80,9 +80,7 @@
   (kbd "M-J") 'evil-join
   (kbd "M-v") 'yank
   (kbd "M-S-<return>") 'evil-open-above
-  (kbd "M-<return>") 'evil-open-below
-  (kbd "M-<left>") 'evil-first-non-blank
-  (kbd "M-<right>") 'move-end-of-line)
+  (kbd "M-<return>") 'evil-open-below)
 
 ;;; ex-mode
 
