@@ -20,6 +20,19 @@
 (define-key cider-mode-map (kbd "M-1") 'reset-cider-repl)
 (define-key cider-mode-map (kbd "M-2") 'run-cider-tests)
 (define-key cider-mode-map (kbd "M-3") 'refresh-cider-repl)
+(define-key cider-mode-map (kbd "M-?") 'cider-doc)
+
+(eval-after-load "clojure-mode"
+  (lambda ()
+    (define-clojure-indent
+      (defroutes 'defun)
+      (GET 2)
+      (POST 2)
+      (PUT 2)
+      (DELETE 2)
+      (HEAD 2)
+      (ANY 2)
+      (context 2))))
 
 
 (defun reset-cider-repl ()
