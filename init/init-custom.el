@@ -32,6 +32,7 @@
  '(enh-ruby-bounce-deep-indent t)
  '(enh-ruby-use-ruby-mode-show-parens-config t)
  '(js2-auto-indent-p t)
+ '(js2-basic-offset 2)
  '(js2-boring-indentation nil)
  '(js2-consistent-level-indent-inner-bracket t)
  '(js2-mode-show-parse-errors t)
