@@ -30,6 +30,7 @@
                  init-snippets
                  init-ack
                  init-sass
+                 init-misc
                  init-anzu
                  init-clojure
                  init-crontab
