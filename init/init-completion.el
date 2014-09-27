@@ -10,6 +10,8 @@
      (define-key company-active-map (kbd "ESC") 'company-abort)
      (define-key company-active-map (kbd "<C-return>") 'company-abort)
 
+
+     company-
      (setq company-idle-delay 0)
      (setq company-minimum-prefix-length 3)
      (setq company-dabbrev-downcase nil)

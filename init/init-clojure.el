@@ -16,10 +16,19 @@
 (require 'cider)
 ;; (add-hook 'clojure-mode-hook 'turn-on-smartparens-strict-mode)
 (setq cider-show-error-buffer nil)
-(define-key cider-mode-map (kbd "C-e") 'cider-show-error-buffer)
+(setq cider-repl-use-clojure-font-lock t)
 (define-key cider-mode-map (kbd "M-1") 'reset-cider-repl)
-(define-key cider-mode-map (kbd "M-2") 'run-cider-tests)
-(define-key cider-mode-map (kbd "M-3") 'refresh-cider-repl)
+(define-key cider-mode-map (kbd "M-2") 'cider-refresh)
+(define-key cider-mode-map (kbd ",ta") 'cider-test-run-tests)
+(define-key cider-mode-map (kbd ",tt") 'cider-test-run-test)
+(define-key cider-mode-map (kbd ",tr") 'cider-test-rerun-tests)
+(define-key cider-mode-map (kbd ",ce") 'cider-visit-error-buffer)
+(define-key cider-mode-map (kbd ",cn") 'cider-repl-set-ns)
+(define-key cider-mode-map (kbd ",cj") 'cider-jack-in)
+(define-key cider-mode-map (kbd ",cJ") 'cider-restart)
+(define-key cider-mode-map (kbd ",cr") 'cider-switch-to-relevant-repl-buffer)
+(define-key cider-mode-map (kbd ",cc") 'cider-repl-clear-buffer)
+
 (define-key cider-mode-map (kbd "M-?") 'cider-doc)
 
 (eval-after-load "clojure-mode"
@@ -32,19 +41,13 @@
       (DELETE 2)
       (HEAD 2)
       (ANY 2)
-      (context 2))))
+      (context 2))
+
+    (define-clojure-indent
+      (go-loop 1))
+))
 
 
 (defun reset-cider-repl ()
   (interactive)
   (cider-interactive-eval "(user/reset)"))
-
-(defun run-cider-tests ()
-  (interactive)
-  (cider-interactive-eval "(user/run-tests)"))
-
-(defun refresh-cider-repl ()
-  (interactive)
-
-  ;(cider-interactive-eval "(clojure.tools.namespace.repl/refresh)")
-  (cider-refresh))

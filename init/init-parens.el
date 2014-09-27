@@ -18,9 +18,9 @@
 
 (define-key sp-keymap (kbd "M-k") 'sp-kill-sexp)
 (define-key sp-keymap (kbd "M-K") 'sp-backward-kill-sexp)
-(define-key sp-keymap (kbd "M-H") 'sp-backward-barf-sexp)
-(define-key sp-keymap (kbd "M-h") 'sp-backward-slurp-sexp)
-(define-key sp-keymap (kbd "M-L") 'sp-forward-barf-sexp)
+(define-key sp-keymap (kbd "M-L") 'sp-backward-barf-sexp)
+(define-key sp-keymap (kbd "M-H") 'sp-backward-slurp-sexp)
+(define-key sp-keymap (kbd "M-h") 'sp-forward-barf-sexp)
 (define-key sp-keymap (kbd "M-l") 'sp-forward-slurp-sexp)
 (define-key sp-keymap (kbd "C-<right>") 'sp-beginning-of-next-sexp)
 (define-key sp-keymap (kbd "C-<left>") 'sp-end-of-previous-sexp)
@@ -30,9 +30,7 @@
   (kbd "(") 'wrap-round
   (kbd "\"") 'wrap-quote
   (kbd "[") 'wrap-square
-  (kbd "K") 'sp-splice-sexp
-  (kbd ",cp") 'sp-split-sexp
-  (kbd ",cj") 'sp-join-sexp)
+  (kbd "K") 'sp-splice-sexp)
 
 (defun wrap-round ()
   (interactive)
