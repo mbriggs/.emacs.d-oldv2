@@ -20,6 +20,7 @@
 
 (prodigy-define-tag :name 'nuvango)
 (prodigy-define-tag :name 'clojure)
+(prodigy-define-tag :name 'leonardo)
 
 (prodigy-define-service :name "Rabbit"
   :command "rabbit-server"
@@ -45,7 +46,7 @@
   :args '("exec" "rerun" "--" "unicorn" "-c" "../../unicorn/vincent/dev.rb")
   :path `(,(my-source-path "vincent/bin"))
   :cwd (my-source-path "vincent")
-  :tags '(nuvango)
+  :tags '(nuvango leonardo)
   :ready-message "worker=2 ready")
 
 (prodigy-define-service
@@ -72,7 +73,8 @@
 
 (prodigy-define-service
   :name "Rabbit"
-  :command "rabbitmq-server")
+  :command "rabbitmq-server"
+  :tags '(leonardo))
 
 (prodigy-define-service
   :name "Wrap Browser"
@@ -111,6 +113,7 @@
   :name "Schmetterling"
   :command "lein"
   :args '("run")
+  :tags '(leonardo)
   :cwd (my-source-path "schmetterling")
   :ready-message "Compass is watching for changes. Press Ctrl-C to Stop")
 

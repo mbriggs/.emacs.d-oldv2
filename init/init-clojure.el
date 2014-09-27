@@ -14,11 +14,12 @@
 (add-hook 'clojure-mode-hook 'midje-mode)
 
 (require 'cider)
+(require 'clojure-mode)
 ;; (add-hook 'clojure-mode-hook 'turn-on-smartparens-strict-mode)
 (setq cider-show-error-buffer nil)
 (setq cider-repl-use-clojure-font-lock t)
 (define-key cider-mode-map (kbd "M-1") 'reset-cider-repl)
-(define-key cider-mode-map (kbd "M-2") 'cider-refresh)
+(define-key cider-mode-map (kbd "M-2") 'my-cider-refresh)
 (define-key cider-mode-map (kbd ",ta") 'cider-test-run-tests)
 (define-key cider-mode-map (kbd ",tt") 'cider-test-run-test)
 (define-key cider-mode-map (kbd ",tr") 'cider-test-rerun-tests)
@@ -34,6 +35,7 @@
 (eval-after-load "clojure-mode"
   (lambda ()
     (define-clojure-indent
+      (while-let 2)
       (defroutes 'defun)
       (GET 2)
       (POST 2)
@@ -51,3 +53,10 @@
 (defun reset-cider-repl ()
   (interactive)
   (cider-interactive-eval "(user/reset)"))
+
+(defun my-cider-refresh ()
+  "Refresh loaded code."
+  (interactive)
+  (cider-tooling-eval
+   "(clojure.core/require 'clojure.tools.namespace.repl) (clojure.tools.namespace.repl/refresh)"
+   (cider-interactive-eval-handler (current-buffer))))

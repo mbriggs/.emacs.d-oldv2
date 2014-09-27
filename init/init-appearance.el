@@ -59,6 +59,7 @@
          (brown "#bc9458"))
      ,@body))
 
+
 (with-theme-colors
  (set-face-attribute 'fringe nil
                      :background dark3
