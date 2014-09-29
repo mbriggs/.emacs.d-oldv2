@@ -21,16 +21,21 @@
 (setq mac-option-modifier nil)
 
 (modify-all-frames-parameters '((fullscreen . maximized)))
-(setq package-archives nil)
-(package-initialize)
 
 ;;; quelpa
+
+(require 'package)
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives
+  '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
+(package-initialize)
 
  (if (require 'quelpa nil t)
      (quelpa '(quelpa :repo "quelpa/quelpa" :fetcher github) :upgrade t)
    (with-temp-buffer
      (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
      (eval-buffer)))
+
 
 (quelpa 'exec-path-from-shell)
 (when (memq window-system '(mac ns))

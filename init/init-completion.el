@@ -11,17 +11,6 @@
      (define-key company-active-map (kbd "<C-return>") 'company-abort)
 
 
-     company-
      (setq company-idle-delay 0)
      (setq company-minimum-prefix-length 3)
-     (setq company-dabbrev-downcase nil)
-     (setq company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
-                               company-preview-frontend
-                               company-echo-metadata-frontend))
-
-
-     (defun company-etags (command &optional arg &rest ignored)) ;; refuses to stay disabled for me, so just redef it
-
-     (defadvice company-pseudo-tooltip-unless-just-one-frontend (around only-show-tooltip-when-invoked activate)
-       (when (company-explicit-action-p)
-         ad-do-it))))
+     (setq company-dabbrev-downcase nil)))

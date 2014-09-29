@@ -28,7 +28,6 @@
                  init-volatile-highlights
                  init-erc
                  init-snippets
-                 init-ack
                  init-sass
                  init-misc
                  init-anzu

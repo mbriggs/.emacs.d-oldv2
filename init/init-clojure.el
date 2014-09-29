@@ -1,7 +1,7 @@
 (provide 'init-clojure)
 
 (quelpa 'troncle)
-(quelpa 'typed-clojure-mode)
+;(quelpa 'typed-clojure-mode)
 (quelpa 'midje-mode)
 (quelpa 'slamhound)
 (quelpa 'midje-mode)
