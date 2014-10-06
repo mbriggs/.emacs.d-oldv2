@@ -1,12 +1,5 @@
 (provide 'init-appearance)
-
-
-(quelpa '(base16-emacs
-          :repo "neil477/base16-emacs"
-          :fetcher github))
-(quelpa 'dash)
 (require 'dash)
-
 (require 'base16-railscasts-theme)
 
 ;; only turn off menus if not osx
@@ -120,11 +113,9 @@
 
 
 
-(quelpa 'highlight-cl)
 (require 'highlight-cl)
 (add-hook 'emacs-lisp-mode-hook 'highlight-cl-add-font-lock-keywords)
 
-(quelpa 'column-enforce-mode)
 (require 'column-enforce-mode)
 (defvar *dont-column-enforce* '(shell-mode prodigy-mode term-mode eshell-mode emacs-pager-mode))
 

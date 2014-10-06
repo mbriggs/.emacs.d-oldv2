@@ -1,11 +1,5 @@
 (provide 'init-js)
 
-(quelpa 'js2-mode)
-(quelpa 'coffee-mode)
-(quelpa 'js2-refactor)
-(quelpa '(js2-jshint :fetcher github :repo "michaeljb/js2-jshint"))
-(quelpa '(gulpjs :fetcher github :repo "stevenremot/emacs-gulpjs"))
-
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
 (add-to-list 'auto-mode-alist '("\\.js.erb$" . js2-mode))

@@ -1,7 +1,5 @@
 (provide 'init-anzu)
 
-(quelpa 'anzu)
-
 (global-anzu-mode +1)
 
 (with-theme-colors

@@ -1,6 +1,5 @@
 (provide 'init-dired)
 
-(quelpa 'dired+)
 (require 'dired+)
 
 (setq ls-lisp-use-insert-directory-program t)

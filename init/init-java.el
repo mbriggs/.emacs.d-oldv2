@@ -1,7 +1,5 @@
 (provide 'init-java)
 
-(quelpa 'emacs-eclim)
-
 (add-hook 'java-mode-hook 'my-load-eclim)
 
 (defvar *my-eclim-loaded* nil)

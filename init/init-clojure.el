@@ -1,13 +1,5 @@
 (provide 'init-clojure)
 
-(quelpa 'troncle)
-;(quelpa 'typed-clojure-mode)
-(quelpa 'midje-mode)
-(quelpa 'slamhound)
-(quelpa 'midje-mode)
-
-(unless (package-installed-p 'cider)
-  (package-install 'cider))
 
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)

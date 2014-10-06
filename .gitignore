@@ -17,3 +17,4 @@ flycheck_*
 /elisp/projectile-alternate-file.el
 /var/
 /jumplist
+/.cask/

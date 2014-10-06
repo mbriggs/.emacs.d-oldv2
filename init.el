@@ -20,8 +20,6 @@
                  init-markdown
                  init-js
                  init-flycheck
-                 init-help
-                 init-yaml
                  init-ruby
                  init-multiple-cursors
                  init-games
@@ -29,20 +27,14 @@
                  init-erc
                  init-snippets
                  init-sass
-                 init-misc
                  init-anzu
                  init-clojure
-                 init-crontab
-                 init-deft
                  init-dired
                  init-term
-                 init-pager
                  init-prodigy
                  init-peepopen
                  init-java
-                 init-mongo
                  init-shell
-                 init-ag
 
                  init-keymaps
                  init-settings))

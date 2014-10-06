@@ -1,6 +1,5 @@
 (provide 'init-flycheck)
 
-(quelpa 'flycheck)
 (add-hook 'sh-mode-hook 'flycheck-mode)
 (add-hook 'json-mode-hook 'flycheck-mode)
 (add-hook 'nxml-mode-hook 'flycheck-mode)

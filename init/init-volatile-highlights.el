@@ -1,6 +1,5 @@
 (provide 'init-volatile-highlights)
 
-(quelpa 'volatile-highlights)
 (require 'volatile-highlights)
 
 (vhl/give-advice-to-make-vhl-on-changes evil-paste-after)

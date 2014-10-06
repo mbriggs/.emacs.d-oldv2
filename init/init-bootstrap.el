@@ -15,6 +15,9 @@
 
 (cd "~")
 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 (setq mac-option-key-is-meta nil)
 (setq mac-command-key-is-meta t)
 (setq mac-command-modifier 'meta)
@@ -22,21 +25,7 @@
 
 (modify-all-frames-parameters '((fullscreen . maximized)))
 
-;;; quelpa
 
-(require 'package)
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives
-  '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
-(package-initialize)
-
- (if (require 'quelpa nil t)
-     (quelpa '(quelpa :repo "quelpa/quelpa" :fetcher github) :upgrade t)
-   (with-temp-buffer
-     (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
-     (eval-buffer)))
-
-
-(quelpa 'exec-path-from-shell)
 (when (memq window-system '(mac ns))
+  (require 'exec-path-from-shell)
   (exec-path-from-shell-initialize))

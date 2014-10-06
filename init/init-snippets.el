@@ -1,8 +1,5 @@
 (provide 'init-snippets)
 
-(quelpa 'yasnippet)
-(quelpa 'auto-yasnippet)
-
 (add-hook 'after-init-hook 'yas-global-mode)
 
 (eval-after-load "yasnippet"

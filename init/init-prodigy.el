@@ -1,6 +1,5 @@
 (provide 'init-prodigy)
 
-(quelpa 'prodigy)
 (require 'dash)
 (require 's)
 

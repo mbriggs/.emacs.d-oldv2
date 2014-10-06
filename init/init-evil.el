@@ -1,23 +1,7 @@
 (provide 'init-evil)
 
-(quelpa 'evil)
-(quelpa 'evil-surround)
-(quelpa 'ace-jump-mode)
-(quelpa 'evil-indent-textobject)
-(quelpa 'evil-jumper)
-(quelpa '(evil-exchange :fetcher github :repo "Dewdrops/evil-exchange"))
 (global-evil-surround-mode 1)
 (evil-mode 1)
-
-(require 'evil-exchange)
-(evil-exchange-install)
-
-(setq evil-jumper-max-length 800)
-(setq evil-jumper-auto-center t)
-(setq evil-jumper-file (expand-file-name "~/.emacs.d/jumplist"))
-(setq evil-jumper-auto-save-interval 10000)
-(require 'evil-jumper)
-
 
 (global-set-key (kbd "M-;") 'ace-jump-word-mode)
 (define-key evil-normal-state-map (kbd "M-.") nil)

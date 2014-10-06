@@ -1,7 +1,5 @@
 (provide 'init-multiple-cursors)
 
-(quelpa 'multiple-cursors)
-
 (global-set-key (kbd "A-<up>") 'mc/mark-previous-like-this)
 (global-set-key (kbd "A-<down>") 'mc/mark-next-like-this)
 

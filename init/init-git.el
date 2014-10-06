@@ -1,24 +1,6 @@
 (provide 'init-git)
 
-(quelpa 'magit)
-(quelpa 'yagist)
-(quelpa 'diff-hl)
-(quelpa 'gh)
-(quelpa 'helm)
-(quelpa 'git-timemachine)
-(quelpa '(open-github-from-here :fetcher github :repo "mbriggs/emacs-open-github-from-here"))
-(quelpa 'magit-gh-pulls)
-
 (setq magit-emacsclient-executable "/usr/local/bin/emacsclient")
-
-(require 'magit-gh-pulls)
-(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
-
-(defun magit-gh-pulls-setup (repoid)
-  (interactive "suser/repo: ")
-  (shell-command "git config --add magit.extension gh-pulls")
-  (shell-command (concat "git config magit.gh-pulls-repo " repoid)))
-
 (add-hook 'git-commit-mode-hook 'insert-ticket-number-from-branch-name)
 
 (defun insert-ticket-number-from-branch-name ()

@@ -1,7 +1,5 @@
 (provide 'init-term)
 
-(quelpa 'multi-term)
-
 (with-theme-colors
  (defface term-color-black
    `((t (:foreground ,dark1 :background ,dark3)))

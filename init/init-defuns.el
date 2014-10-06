@@ -1,7 +1,5 @@
 (provide 'init-defuns)
 
-(quelpa 'dash)
-(quelpa 's)
 (eval-after-load "dash" '(dash-enable-font-lock))
 
 (defun split-window-right-and-move-there ()

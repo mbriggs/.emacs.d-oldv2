@@ -1,7 +1,5 @@
 (provide 'init-erc)
 
-(quelpa 'erc-terminal-notifier)
-
 (eval-after-load "erc"
   '(progn
      (require 'erc-terminal-notifier)))

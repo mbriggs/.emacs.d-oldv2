@@ -1,6 +1,5 @@
 (provide 'init-markdown)
 
-(quelpa '(markdown-mode :url "git://jblevins.org/git/markdown-mode.git" :fetcher git))
 (autoload 'markdown-mode "markdown-mode" nil t)
 (autoload 'gfm-mode "markdown-mode" nil t)
 

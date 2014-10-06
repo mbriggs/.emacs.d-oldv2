@@ -1,8 +1,5 @@
 (provide 'init-projectile)
 
-(quelpa 'projectile)
-(quelpa 'grizzl)
-
 (projectile-global-mode)
 
 (global-set-key (kbd "M-W") 'projectile-kill-buffers)
