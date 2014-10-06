@@ -118,6 +118,8 @@
         ("[de]debug-elisp"          . edebug-defun)
         ("[pr]oject"                . switch-to-local-project)
         ("p"                        . prodigy)
+        ("sw"                       . swoop)
+        ("swm"                      . swoop-multi)
         ("mongo"                    . inf-mongo)
         ("sql"                      . sql-mysql)
         ("delete"                   . delete-this-buffer-and-file)

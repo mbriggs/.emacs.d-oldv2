@@ -6,6 +6,8 @@
 (depends-on "base15-emacs" :git "http://github.com/neil477/base16-emacs.git")
 (depends-on "dash")
 (depends-on "anzu")
+(depends-on "httprepl")
+(depends-on "swoop")
 (depends-on "highlight-cl")
 (depends-on "column-enforce-mode")
 (depends-on "exec-path-from-shell")
