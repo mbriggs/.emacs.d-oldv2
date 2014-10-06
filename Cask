@@ -1,6 +1,7 @@
 (source gnu)
 (source melpa)
 
+(depends-on "cider")
 (depends-on "cask")
 (depends-on "base15-emacs" :git "http://github.com/neil477/base16-emacs.git")
 (depends-on "dash")
@@ -9,7 +10,6 @@
 (depends-on "column-enforce-mode")
 (depends-on "exec-path-from-shell")
 (depends-on "slamhound")
-(depends-on "cider")
 (depends-on "company")
 (depends-on "s")
 (depends-on "dired+")
@@ -49,7 +49,6 @@
 (depends-on "bundler")
 (depends-on "rspec-mode")
 (depends-on "ruby-refactor")
-(depends-on "enh-ruby-mode")
 (depends-on "rails-log-mode")
 (depends-on "rubocop")
 (depends-on "inf-ruby")

@@ -1,9 +1,8 @@
 (provide 'init-ruby)
 
-(autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
-(add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.rabl$" . enh-ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rabl$" . ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
 (defun ruby-method-space-replace ()
   "When pressing space while naming a defined method, insert an underscore"
@@ -21,15 +20,15 @@
      (setq rspec-spec-command "rspec")
      (setq rspec-use-spring-when-possible t)
 
-     (define-key enh-ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
-     (define-key enh-ruby-mode-map (kbd "SPC") 'ruby-method-space-replace)
+     (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
+     (define-key ruby-mode-map (kbd "SPC") 'ruby-method-space-replace)
 
-     (evil-define-key 'visual enh-ruby-mode-map
+     (evil-define-key 'visual ruby-mode-map
        ",rm" 'ruby-refactor-extract-to-method
        ",rv" 'ruby-refactor-extract-local-variable
        ",rl" 'ruby-refactor-extract-to-let)
 
-     (evil-define-key 'normal enh-ruby-mode-map
+     (evil-define-key 'normal ruby-mode-map
        ",t," 'projectile-toggle-between-implementation-and-test
        ",tf" 'rspec-verify
        ",tt" 'rspec-verify-single
